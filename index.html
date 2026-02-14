@@ -6,7 +6,7 @@
 <title>전통과 현대를 잇는 소리의 자리, 〈흥:취〉</title>
 
 <meta property="og:title" content="전통과 현대를 잇는 소리의 자리, 〈흥:취〉" />
-<meta property="og:description" content="2026.02.21 (토) 17:00 | 천안시청소년복합커뮤니티센터 대공연장 | 전석 무료(사전신청 가능)" />
+<meta property="og:description" content="2026.02.21 (토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청 가능)" />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="https://kom313535-afk.github.io/TheHeungCompany/assets/og.png" />
 
@@ -21,6 +21,7 @@
   --muted:rgba(245,242,234,0.72);
   --line:rgba(245,242,234,0.16);
   --card:rgba(0,0,0,0.56);
+  --chip:rgba(0,0,0,0.30);
 }
 
 *{box-sizing:border-box;}
@@ -33,6 +34,7 @@ body{
   overflow-x:hidden;
 }
 
+/* 배경 */
 .bg{
   position:fixed;
   inset:0;
@@ -55,18 +57,18 @@ body{
   place-items:center;
   z-index:10;
   pointer-events:none;
-  animation:introOut 700ms ease 1700ms forwards;
+  animation:introOut 650ms ease 1550ms forwards;
 }
 .hanja{
   opacity:0;
   transform:translateY(14px) scale(0.98);
   filter:blur(3px);
-  animation:hanjaIn 1100ms cubic-bezier(.18,.9,.18,1) 250ms forwards;
+  animation:hanjaIn 1050ms cubic-bezier(.18,.9,.18,1) 240ms forwards;
 }
 .hanja span{
   font-family:"Noto Serif TC","Noto Serif KR",serif;
   font-weight:700;
-  font-size:clamp(56px,10vw,108px);
+  font-size:clamp(56px,10vw,110px);
   letter-spacing:0.10em;
   color:rgba(245,242,234,0.96);
   text-shadow:0 2px 0 rgba(0,0,0,0.6), 0 16px 40px rgba(0,0,0,0.62);
@@ -80,24 +82,23 @@ body{
   to{opacity:0; visibility:hidden;}
 }
 
-/* 메인 */
+/* 레이아웃 */
 .wrap{
   position:relative;
   min-height:100svh;
   display:flex;
   justify-content:center;
-  padding:26px 16px 44px;
+  padding:24px 14px 42px;
 }
-
 .shell{
   width:100%;
-  max-width:960px;
-  margin-top: clamp(220px, 34svh, 380px);
+  max-width:980px;
+  margin-top: clamp(210px, 34svh, 360px);
   display:grid;
   gap:14px;
 }
 
-/* 포스터 영역 */
+/* 포스터 */
 .poster{
   border:1px solid var(--line);
   border-radius:18px;
@@ -106,8 +107,8 @@ body{
   overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,0.62);
   opacity:0;
-  transform:translateY(18px);
-  animation:in 900ms ease 1750ms forwards;
+  transform:translateY(16px);
+  animation:in 850ms ease 1600ms forwards;
 }
 .poster img{
   width:100%;
@@ -115,7 +116,7 @@ body{
   display:block;
 }
 
-/* 정보 카드 */
+/* 카드 */
 .card{
   border:1px solid var(--line);
   border-radius:18px;
@@ -123,11 +124,10 @@ body{
   backdrop-filter:blur(10px);
   box-shadow:0 20px 60px rgba(0,0,0,0.62);
   opacity:0;
-  transform:translateY(18px);
-  animation:in 900ms ease 1850ms forwards;
+  transform:translateY(16px);
+  animation:in 850ms ease 1700ms forwards;
 }
 @keyframes in{to{opacity:1; transform:translateY(0);}}
-
 .inner{padding:18px 16px 16px;}
 
 .title{
@@ -144,11 +144,12 @@ body{
   white-space:pre-line;
 }
 
+/* 표 형태 */
 .grid{margin-top:14px; display:grid; gap:10px;}
 .row{
   display:flex;
   justify-content:space-between;
-  gap:16px;
+  gap:12px;
   padding:12px;
   border:1px solid var(--line);
   border-radius:14px;
@@ -157,26 +158,58 @@ body{
 .k{color:var(--muted); font-size:13px; min-width:84px;}
 .v{font-size:13px; text-align:right; line-height:1.6; white-space:pre-line;}
 
-.btns{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px;}
+/* 전석무료 + 사전신청 한 줄 */
+.inline{
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--chip);
+  font-size:12.5px;
+  color:var(--text);
+  line-height:1;
+}
 .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   border:1px solid var(--line);
   background:rgba(0,0,0,0.34);
   color:var(--text);
-  padding:10px 12px;
-  border-radius:14px;
+  padding:9px 12px;
+  border-radius:12px;
   font-size:13px;
   text-decoration:none;
   cursor:pointer;
+  min-height:38px;
 }
 .btn:hover{background:rgba(0,0,0,0.44);}
+.btn.full{width:100%;}
 
-.note{
-  margin:10px 0 0;
-  color:rgba(245,242,234,0.58);
-  font-size:12px;
-  line-height:1.7;
+/* 버튼 영역 */
+.btns{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
+/* 모바일에서 버튼 줄 정리 */
+@media (max-width:520px){
+  .k{min-width:70px;}
+  .row{padding:11px;}
+  .btns .btn{flex:1 1 calc(50% - 10px);}
+}
+
+/* 동작 줄이기 옵션 */
 @media (prefers-reduced-motion: reduce){
   .intro,.hanja,.poster,.card{animation:none; opacity:1; transform:none;}
 }
@@ -194,9 +227,9 @@ body{
 <main class="wrap">
   <div class="shell">
 
-    <!-- 포스터(완성본) -->
-    <section class="poster" aria-label="포스터">
-      <img src="assets/poster.png" alt="전통과 현대를 잇다 〈흥:취〉 포스터">
+    <!-- 포스터(있으면 표시, 없으면 숨김 처리됨: JS에서 검사) -->
+    <section class="poster" id="posterBlock" aria-label="포스터">
+      <img id="posterImg" src="assets/poster.png" alt="전통과 현대를 잇다 〈흥:취〉 포스터">
     </section>
 
     <!-- 공연 정보 -->
@@ -210,27 +243,37 @@ body{
             <div class="k">일시</div>
             <div class="v" id="eventDate"></div>
           </div>
+
           <div class="row">
             <div class="k">장소</div>
             <div class="v" id="eventPlace"></div>
           </div>
+
           <div class="row">
             <div class="k">관람</div>
-            <div class="v" id="eventTicket"></div>
+            <div class="v">
+              <div class="inline">
+                <span class="chip" id="eventTicket"></span>
+                <a class="btn" id="rsvpInlineBtn" href="#" target="_blank" rel="noopener">사전신청</a>
+              </div>
+            </div>
           </div>
+
           <div class="row">
             <div class="k">문의</div>
-            <div class="v" id="eventContact"></div>
+            <div class="v">
+              <a class="btn" id="callBtn" href="#" style="text-decoration:none;">전화하기</a>
+              <div style="margin-top:8px; color:var(--muted); font-size:12.5px; line-height:1.6;" id="eventContactText"></div>
+            </div>
           </div>
         </div>
 
         <div class="btns">
-          <a class="btn" id="rsvpBtn" href="#" target="_blank" rel="noopener">사전신청</a>
+          <a class="btn" id="rsvpBtn" href="#" target="_blank" rel="noopener">사전신청 링크</a>
           <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">지도</a>
           <button class="btn" id="copyBtn" type="button">문의번호 복사</button>
+          <button class="btn" id="shareBtn" type="button">링크 공유</button>
         </div>
-
-        <p class="note">공유 미리보기(OG 이미지)는 assets/og.png로 설정되어 있다. 변경 후 반영이 늦으면 파일명을 바꾸면 된다.</p>
       </div>
     </section>
 
@@ -240,12 +283,18 @@ body{
 <script>
 const INVITE = {
   title: "전통과 현대를 잇는 소리의 자리, 〈흥:취〉",
-  desc: "더흥컴퍼니 기획연주회에 여러분을 초대합니다.\n\n무대 위에서 펼쳐지는 흥의 순간을 함께해 주세요.",
+  desc:
+`더흥컴퍼니 2026년 상반기 두 번째 기획공연 ‘전통과 현대를 잇다’가 개최된다.
+전통 레퍼토리와 창작곡을 한 무대에서 엮어, 전통의 결을 유지한 채 오늘의 감각으로 풀어낸다.
+관람석 200석은 사전신청 선예약으로 운영되며, 신청 시 대표자 연락처로 확정 문자를 안내한다.
+공연 당일 현장접수로도 관람이 가능하다.`,
   date: "2026.02.21 (토) 17:00",
-  place: "천안시청소년복합커뮤니티센터 대공연장",
+  place: "천안시청소년복합커뮤니티센터 1층 대공연장",
   ticket: "전석 무료 (사전신청 가능)",
   rsvpUrl: "https://form.naver.com/response/4l1qf5vUUzlSO0Z_tbeU2Q",
-  contactText: "천안시청소년복합커뮤니티센터 교육사업팀\n041-557-0924",
+  // 사용자가 준 단축 링크도 같이 제공
+  rsvpShortUrl: "https://naver.me/5fdL4G8Q",
+  contactDept: "천안시청소년복합커뮤니티센터 교육사업팀",
   contactPhone: "041-557-0924",
   mapQuery: "천안시청소년복합커뮤니티센터"
 };
@@ -255,12 +304,18 @@ document.getElementById("eventDesc").textContent = INVITE.desc;
 document.getElementById("eventDate").textContent = INVITE.date;
 document.getElementById("eventPlace").textContent = INVITE.place;
 document.getElementById("eventTicket").textContent = INVITE.ticket;
-document.getElementById("eventContact").textContent = INVITE.contactText;
 
-document.getElementById("rsvpBtn").href = INVITE.rsvpUrl;
+document.getElementById("rsvpInlineBtn").href = INVITE.rsvpShortUrl || INVITE.rsvpUrl;
+document.getElementById("rsvpBtn").href = INVITE.rsvpShortUrl || INVITE.rsvpUrl;
 
 const mapUrl = "https://map.naver.com/v5/search/" + encodeURIComponent(INVITE.mapQuery);
 document.getElementById("mapBtn").href = mapUrl;
+
+// 전화하기 버튼 (모바일에서 바로 전화)
+document.getElementById("callBtn").href = "tel:" + INVITE.contactPhone.replace(/[^0-9]/g,"");
+
+document.getElementById("eventContactText").textContent =
+`${INVITE.contactDept}\n${INVITE.contactPhone}`;
 
 document.getElementById("copyBtn").addEventListener("click", async () => {
   try{
@@ -270,6 +325,33 @@ document.getElementById("copyBtn").addEventListener("click", async () => {
     prompt("아래 번호를 복사한다.", INVITE.contactPhone);
   }
 });
+
+// 링크 공유(지원 기기만)
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const url = location.href;
+  try{
+    if(navigator.share){
+      await navigator.share({ title: INVITE.title, text: INVITE.title, url });
+      return;
+    }
+  }catch(e){}
+  try{
+    await navigator.clipboard.writeText(url);
+    alert("링크가 복사되었다.");
+  }catch(e){
+    prompt("아래 링크를 복사한다.", url);
+  }
+});
+
+// 포스터 이미지가 없으면 포스터 블록 숨김
+(function(){
+  const posterImg = document.getElementById("posterImg");
+  const posterBlock = document.getElementById("posterBlock");
+  posterImg.addEventListener("error", () => {
+    posterBlock.style.display = "none";
+  });
+})();
 </script>
+
 </body>
 </html>
