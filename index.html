@@ -1,185 +1,489 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>전통과 현대를 잇는 소리의 자리, 〈흥:취〉</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>더흥컴퍼니 〈흥:취〉 공연 안내</title>
+  <meta name="description" content="전통과 현대를 잇는 소리의 자리, 〈흥:취〉. 2026.02.21(토) 17:00. 천안시청소년복합커뮤니티센터 대공연장. 전석 무료(사전신청 가능)." />
 
-<meta property="og:title" content="전통과 현대를 잇는 소리의 자리, 〈흥:취〉" />
-<meta property="og:description" content="2026.02.21 (토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청 가능)" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://kom313535-afk.github.io/TheHeungCompany/" />
-<meta property="og:image" content="https://kom313535-afk.github.io/TheHeungCompany/assets/og.png" />
+  <!-- OG (공유 썸네일) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="더흥컴퍼니 〈흥:취〉 공연 안내" />
+  <meta property="og:description" content="전통과 현대를 잇는 소리의 자리, 〈흥:취〉. 2026.02.21(토) 17:00. 전석 무료(사전신청 가능)." />
+  <!-- 아래 og:image는 반드시 “절대주소”여야 한다 -->
+  <meta property="og:image" content="https://kom313535-afk.github.io/TheHeungCompany/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0c0d;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.10);
+      --text:#f3f1ea;
+      --muted: rgba(243,241,234,.72);
+      --muted2: rgba(243,241,234,.55);
+      --shadow: 0 10px 40px rgba(0,0,0,.55);
+      --radius: 16px;
+      --radius2: 20px;
+      --max: 980px;
+    }
 
-<style>
-:root{
-  --bg:url("assets/bg.png");
-  --text:rgba(245,242,234,0.95);
-  --muted:rgba(245,242,234,0.74);
-  --line:rgba(245,242,234,0.14);
-  --card:rgba(0,0,0,0.60);
-}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background: radial-gradient(1200px 800px at 50% 0%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, #050607, #0b0c0d 40%, #050607);
+      color: var(--text);
+      font-family: -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      letter-spacing: -0.2px;
+      overflow-x:hidden;
+    }
 
-*{box-sizing:border-box;}
-html,body{height:100%;}
-body{
-  margin:0;
-  font-family:"Noto Serif KR",serif;
-  background:#000;
-  color:var(--text);
-  overflow-x:hidden;
-}
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width:min(var(--max), 100% - 32px); margin:0 auto; padding: 28px 0 72px; }
 
-/* 배경 */
-.bg{
-  position:fixed;
-  inset:0;
-  background-image:var(--bg);
-  background-size:cover;
-  background-position:center;
-  opacity:0.42;               /* ↓ 불투명도 낮춤 */
-  filter:blur(6px) brightness(0.8); /* ↓ 부드럽게 */
-  transition:opacity .6s ease, filter .6s ease;
-}
+    /* 인트로(흥취 한자) */
+    .splash{
+      position: fixed;
+      inset:0;
+      z-index: 50;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: #050607;
+    }
+    .splash::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: url("assets/bg.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(.9) contrast(.95);
+      opacity: .30; /* 여기로 눈부심 제어 */
+      transform: scale(1.03);
+    }
+    .splash::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 500px at 50% 45%, rgba(0,0,0,.25), rgba(0,0,0,.80));
+    }
+    .splashInner{
+      position: relative;
+      text-align:center;
+      padding: 18px 18px 8px;
+      user-select:none;
+    }
+    .splashTitle{
+      font-size: clamp(26px, 5.2vw, 52px);
+      font-weight: 760;
+      letter-spacing: 2px;
+      margin:0;
+      text-shadow: 0 10px 30px rgba(0,0,0,.7);
+    }
+    .splashSub{
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: rgba(243,241,234,.72);
+    }
+    .skipBtn{
+      position:absolute;
+      left: 50%;
+      bottom: 34px;
+      transform: translateX(-50%);
+      padding: 10px 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.28);
+      color: rgba(243,241,234,.85);
+      border-radius: 999px;
+      font-size: 13px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+    }
+    .skipBtn:active{ transform: translateX(-50%) scale(.98); }
 
-/* 인트로 동안 배경 더 어둡게 */
-body.intro-active .bg{
-  opacity:0.28;
-  filter:blur(8px) brightness(0.65);
-}
+    .splash.hide{
+      animation: splashOut .75s ease forwards;
+    }
+    @keyframes splashOut{
+      to{ opacity:0; visibility:hidden; }
+    }
 
-.vignette{
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle at center,
-    rgba(0,0,0,0.2),
-    rgba(0,0,0,0.7) 75%);
-}
+    header{
+      padding: 14px 0 6px;
+    }
+    .kicker{
+      color: var(--muted2);
+      font-size: 13px;
+      margin:0 0 10px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(22px, 3.6vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -0.4px;
+    }
+    .lead{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+      max-width: 72ch;
+    }
 
-/* 인트로 */
-.intro{
-  position:fixed;
-  inset:0;
-  display:grid;
-  place-items:center;
-  z-index:10;
-  animation:introOut 700ms ease 1500ms forwards;
-}
+    /* 레이아웃 */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (min-width: 980px){
+      .grid{
+        grid-template-columns: 1.1fr .9fr;
+        gap: 18px;
+        align-items:start;
+      }
+    }
 
-.hanja{
-  opacity:0;
-  transform:scale(.96);
-  animation:hanjaIn 1100ms ease forwards;
-}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .cardPad{ padding: 16px; }
+    @media (min-width: 540px){
+      .cardPad{ padding: 18px; }
+    }
 
-.hanja span{
-  font-family:"Noto Serif TC","Noto Serif KR",serif;
-  font-weight:700;
-  font-size:clamp(60px,10vw,120px);
-  letter-spacing:0.1em;
-  color:#f5f2ea;
-  text-shadow:0 6px 30px rgba(0,0,0,0.8);
-}
+    .posterWrap{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .poster{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+    }
 
-@keyframes hanjaIn{
-  to{opacity:1; transform:scale(1);}
-}
-@keyframes introOut{
-  to{opacity:0; visibility:hidden;}
-}
+    .infoTable{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      align-items:center;
+      padding: 12px 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      background: rgba(0,0,0,.18);
+    }
+    .label{
+      color: rgba(243,241,234,.70);
+      font-size: 13px;
+    }
+    .value{
+      font-size: 14px;
+      line-height: 1.45;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .valueLeft{
+      min-width: 180px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(243,241,234,.92);
+      font-size: 13px;
+      white-space: nowrap;
+    }
 
-/* 레이아웃 */
-.wrap{
-  position:relative;
-  min-height:100svh;
-  display:flex;
-  justify-content:center;
-  padding:24px 14px 44px;
-}
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 8px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(243,241,234,.92);
+      font-size: 14px;
+      cursor:pointer;
+      user-select:none;
+      flex: 1 1 160px;
+      min-height: 44px;
+    }
+    .btnPrimary{
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.20);
+    }
+    .btn:active{ transform: scale(.99); }
 
-.shell{
-  width:100%;
-  max-width:980px;
-  margin-top:clamp(220px,35svh,380px);
-  display:grid;
-  gap:16px;
-}
+    .sectionTitle{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+    }
+    .muted{
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+      margin: 0;
+    }
 
-/* 포스터 */
-.poster{
-  border-radius:20px;
-  overflow:hidden;
-  background:var(--card);
-  backdrop-filter:blur(12px);
-  box-shadow:0 30px 80px rgba(0,0,0,0.7);
-}
+    .hr{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin: 14px 0;
+    }
 
-.poster img{
-  width:100%;
-  display:block;
-}
+    /* 리플렛 */
+    .leafletGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 740px){
+      .leafletGrid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .leafletImg{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+    }
 
-/* 카드 */
-.card{
-  border-radius:20px;
-  background:var(--card);
-  backdrop-filter:blur(12px);
-  box-shadow:0 30px 80px rgba(0,0,0,0.7);
-}
+    /* 연혁 */
+    .history{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(243,241,234,.82);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    .history li{ margin: 6px 0; }
 
-.inner{padding:20px;}
-
-.title{
-  margin:0;
-  font-size:20px;
-  font-weight:700;
-}
-
-.desc{
-  margin-top:12px;
-  font-size:14px;
-  line-height:1.75;
-  color:var(--muted);
-  white-space:pre-line;
-}
-
-/* 모바일 */
-@media(max-width:520px){
-  .inner{padding:16px;}
-}
-</style>
+    /* 하단 작은 안내 */
+    .footnote{
+      margin-top: 10px;
+      color: rgba(243,241,234,.52);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 
-<body class="intro-active">
-
-<div class="bg"></div>
-<div class="vignette"></div>
-
-<div class="intro">
-  <div class="hanja">
-    <span>興 趣</span>
+<body>
+  <!-- 인트로: 흥취 (너무 빨리 넘어가지 않게 기본 3.2초, 터치하면 즉시 스킵) -->
+  <div class="splash" id="splash" role="dialog" aria-label="인트로">
+    <div class="splashInner">
+      <h2 class="splashTitle" aria-label="흥취">興 趣</h2>
+      <p class="splashSub">화면을 누르면 바로 넘어간다</p>
+    </div>
+    <button class="skipBtn" id="skipBtn" type="button">바로 보기</button>
   </div>
-</div>
 
-<main class="wrap">
-  <div class="shell">
+  <div class="wrap" id="top">
+    <header>
+      <p class="kicker">더흥컴퍼니 2026년 상반기 두 번째 기획공연</p>
+      <h1>전통과 현대를 잇는 소리의 자리, 〈흥:취〉</h1>
+      <p class="lead">
+        더흥컴퍼니는 전통 레퍼토리의 결을 바탕으로 동시대 창작곡을 함께 엮어, ‘지금 이 자리’의 국악을 한 무대에서 제시한다.
+        본 공연은 전석 무료로 운영되며, 사전신청을 통해 200석 선예약을 진행한다.
+        신청 완료 시 대표자 연락처로 확정 문자를 안내한다.
+        공연 당일에는 우선 입장 및 좌석 안내를 지원하며, 지정좌석제가 아님을 안내한다.
+      </p>
+    </header>
 
-    <section class="poster">
-      <img src="assets/poster.png" alt="전통과 현대를 잇다 〈흥:취〉 포스터">
-    </section>
+    <div class="grid">
+      <!-- 왼쪽: 안내/정보/리플렛/연혁 -->
+      <section class="card">
+        <div class="cardPad">
+          <h3 class="sectionTitle">공연 정보</h3>
 
+          <div class="infoTable" aria-label="공연 정보 표">
+            <div class="row">
+              <div class="label">일시</div>
+              <div class="value">
+                <span class="valueLeft">2026.02.21 (토) 17:00</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="label">장소</div>
+              <div class="value">
+                <span class="valueLeft">천안시청소년복합커뮤니티센터 1층 대공연장</span>
+                <a class="pill" href="#map">지도 보기</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="label">관람</div>
+              <div class="value">
+                <span class="valueLeft">전석 무료</span>
+                <a class="pill" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener noreferrer">사전신청 바로가기</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="label">문의</div>
+              <div class="value">
+                <span class="valueLeft">천안시청소년복합커뮤니티센터 교육사업팀 041-557-0924</span>
+                <a class="pill" href="tel:0415570924">전화하기</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions" aria-label="빠른 실행">
+            <a class="btn btnPrimary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener noreferrer">사전신청</a>
+            <a class="btn" href="tel:0415570924">문의 전화</a>
+            <button class="btn" type="button" id="copyPhone">문의번호 복사</button>
+          </div>
+
+          <p class="footnote">
+            신청기간은 사전예약좌석 200석 마감 시까지 운영한다. 사전신청 200석 외에도 공연 당일 현장접수로 관람이 가능하다.
+          </p>
+
+          <div class="hr"></div>
+
+          <h3 class="sectionTitle">리플렛</h3>
+          <div class="leafletGrid">
+            <a href="assets/leaflet-1.png" target="_blank" rel="noopener noreferrer" aria-label="리플렛 1 확대 보기">
+              <img class="leafletImg" src="assets/leaflet-1.png" alt="리플렛 이미지 1" loading="lazy" />
+            </a>
+            <a href="assets/leaflet-2.png" target="_blank" rel="noopener noreferrer" aria-label="리플렛 2 확대 보기">
+              <img class="leafletImg" src="assets/leaflet-2.png" alt="리플렛 이미지 2" loading="lazy" />
+            </a>
+          </div>
+
+          <div class="hr"></div>
+
+          <h3 class="sectionTitle">더흥컴퍼니 연혁</h3>
+          <ul class="history">
+            <li>국립국악원 찾아가는 교실음악회 〈국악배달통〉 선정</li>
+            <li>시·군 청년예술단체 협력공연 사업 〈흥청온청〉 선정</li>
+            <li>신진국악실험무대 〈전국팔도프로젝트 Vol.4 음풍농월〉 수행</li>
+            <li>천안청년예술 연계프로젝트 〈더 Fun한 라디오콘서트〉 수행</li>
+            <li>문화예술 창작지원사업 〈야금밴드 K-POP 콘서트〉 수행</li>
+            <li>노인요양시설 전통예술프로그램 〈우리소리 興얼興얼〉 수행</li>
+            <li>한·일 청소년 교류 초청사업 식전공연 수행</li>
+            <li>신진국악실험무대 〈경서가악단 溫 - 온고지신〉 수행</li>
+            <li>충남교육청 찾아가는 예술체험한마당 예술단체 선정</li>
+          </ul>
+
+          <div class="hr" id="map"></div>
+
+          <h3 class="sectionTitle">오시는 길</h3>
+          <p class="muted">
+            지도 버튼은 기기 환경에 따라 네이버지도 또는 기본 지도앱으로 연결되는 방식이 가장 안정적이다.
+          </p>
+          <div class="actions">
+            <!-- 좌표/정확 주소를 모르면 “검색 링크”로 보내는 것이 안전하다 -->
+            <a class="btn" target="_blank" rel="noopener noreferrer"
+               href="https://map.naver.com/v5/search/%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
+              네이버지도에서 검색
+            </a>
+            <a class="btn" target="_blank" rel="noopener noreferrer"
+               href="https://www.google.com/maps/search/?api=1&query=%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
+              구글지도에서 검색
+            </a>
+          </div>
+
+          <p class="footnote">
+            모바일에서는 지도 앱 연결이 환경별로 다르게 동작할 수 있다. 위 링크는 “검색” 방식으로 처리하여 실패 확률을 낮춘다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 오른쪽: 포스터 -->
+      <aside class="card">
+        <div class="cardPad posterWrap">
+          <h3 class="sectionTitle">포스터</h3>
+          <img class="poster" src="assets/poster.png" alt="더흥컴퍼니 〈흥:취〉 포스터" />
+          <p class="footnote">
+            포스터 이미지는 확대가 필요한 경우, 길게 눌러 저장 또는 새 탭 열기를 사용한다.
+          </p>
+        </div>
+      </aside>
+    </div>
   </div>
-</main>
 
-<script>
-window.addEventListener("load",()=>{
-  setTimeout(()=>{
-    document.body.classList.remove("intro-active");
-  },1500);
-});
-</script>
+  <script>
+    (function(){
+      const SPLASH_MS = 3200; // “포스터가 너무 빨리 나온다” 방지: 기본 3.2초
+      const splash = document.getElementById('splash');
+      const skipBtn = document.getElementById('skipBtn');
 
+      let done = false;
+      function hideSplash(){
+        if(done) return;
+        done = true;
+        splash.classList.add('hide');
+        setTimeout(() => { splash.style.display = 'none'; }, 800);
+      }
+
+      // 자동 종료(지연)
+      setTimeout(hideSplash, SPLASH_MS);
+
+      // 탭/클릭 시 즉시 스킵
+      splash.addEventListener('click', hideSplash, { passive:true });
+      skipBtn.addEventListener('click', function(e){
+        e.stopPropagation();
+        hideSplash();
+      });
+
+      // 문의번호 복사
+      const copyBtn = document.getElementById('copyPhone');
+      copyBtn.addEventListener('click', async function(){
+        const phone = '041-557-0924';
+        try{
+          await navigator.clipboard.writeText(phone);
+          copyBtn.textContent = '복사 완료';
+          setTimeout(()=>{ copyBtn.textContent = '문의번호 복사'; }, 1200);
+        }catch(err){
+          // 클립보드가 막힌 환경 대비: fallback
+          const ta = document.createElement('textarea');
+          ta.value = phone;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copyBtn.textContent = '복사 완료';
+          setTimeout(()=>{ copyBtn.textContent = '문의번호 복사'; }, 1200);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
