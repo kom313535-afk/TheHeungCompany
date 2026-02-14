@@ -3,574 +3,540 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>더흥컴퍼니 2026년 상반기 기획공연 | 전통과 현대를 잇는 소리의 자리, 〈흥:취〉</title>
+  <meta name="description" content="더흥컴퍼니 2026년 상반기 기획공연 〈흥:취〉 안내. 2026.02.21(토) 17:00, 천안시청소년복합커뮤니티센터 1층 대공연장. 전석 무료(사전신청 가능)." />
 
-  <title>전통과 현대를 잇는 소리의 자리, 〈흥:취〉</title>
-  <meta name="description" content="더흥컴퍼니 2026년 상반기 두 번째 기획공연 〈흥:취〉. 2026.02.21 (토) 17:00, 천안시청소년복합커뮤니티센터 1층 대공연장. 전석 무료(사전신청 가능)." />
-
-  <!-- OG(링크 썸네일) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="전통과 현대를 잇는 소리의 자리, 〈흥:취〉" />
-  <meta property="og:description" content="2026.02.21 (토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청 가능)" />
-  <meta property="og:image" content="https://kom313535-afk.github.io/TheHeungCompany/assets/og.png" />
+  <meta property="og:description" content="2026.02.21(토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청 가능)" />
   <meta property="og:url" content="https://kom313535-afk.github.io/TheHeungCompany/" />
+  <meta property="og:image" content="https://kom313535-afk.github.io/TheHeungCompany/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root{
-      --bg:#0b0b0c;
-      --panel: rgba(255,255,255,.06);
-      --panel-2: rgba(255,255,255,.08);
-      --border: rgba(255,255,255,.10);
+      --bg:#070707;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --line: rgba(255,255,255,.12);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.70);
+      --muted: rgba(255,255,255,.72);
       --muted2: rgba(255,255,255,.58);
-      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --shadow: 0 18px 40px rgba(0,0,0,.55);
       --radius: 18px;
-      --max: 980px;
-      --accent: rgba(255,255,255,.92);
-      --btn: rgba(255,255,255,.10);
-      --btnHover: rgba(255,255,255,.16);
+      --maxw: 980px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", AppleSDGothicNeo, "Malgun Gothic", sans-serif;
+      font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.55;
-      word-break: keep-all;
     }
     a{color:inherit}
-    .wrap{
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
+
+    /* 배경 (눈부심 완화) */
+    .page-bg{
+      position:fixed; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.62) 40%, rgba(0,0,0,.86) 100%),
+        url("assets/bg.png") center/cover no-repeat;
+      opacity:.55; /* 여기로 전체 톤 맞춤 */
+      filter: saturate(.92) contrast(.98);
+      z-index:-2;
+    }
+    .vignette{
+      position:fixed; inset:0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,.18) 0%, rgba(0,0,0,.55) 68%, rgba(0,0,0,.78) 100%);
+      z-index:-1;
     }
 
-    /* INTRO */
+    /* 레이아웃 */
+    .wrap{
+      width:min(var(--maxw), 92vw);
+      margin: 0 auto;
+      padding: 26px 0 70px;
+    }
+
+    /* 인트로 */
     .intro{
-      position: fixed;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      z-index: 999;
-      background: #000;
-      overflow: hidden;
-    }
-    .intro::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image:
-        radial-gradient(1200px 700px at 50% 40%, rgba(0,0,0,.15), rgba(0,0,0,.75)),
-        linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.82));
-      z-index: 1;
-    }
-    .intro-bg{
-      position:absolute;
-      inset:0;
-      background: url("assets/bg.png") center/cover no-repeat;
-      filter: saturate(.9) contrast(.95);
-      opacity: .52; /* 요청: bg 눈아픔 완화 */
-      transform: scale(1.02);
-    }
-    .intro-card{
-      position: relative;
-      z-index: 2;
-      width: min(720px, calc(100% - 40px));
-      padding: 28px 20px 22px;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: rgba(0,0,0,.38);
-      box-shadow: var(--shadow);
-      text-align: center;
-      backdrop-filter: blur(8px);
-    }
-    .intro-title{
-      margin: 0 0 10px;
-      font-size: clamp(34px, 6vw, 64px);
-      letter-spacing: 0.08em;
-      font-weight: 750;
-    }
-    .intro-sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .intro-actions{
+      position:fixed; inset:0;
       display:flex;
-      gap: 10px;
-      justify-content:center;
-      flex-wrap: wrap;
-    }
-    .btn{
-      appearance:none;
-      border: 1px solid var(--border);
-      background: var(--btn);
-      color: var(--text);
-      padding: 12px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-weight: 650;
-      letter-spacing: 0.01em;
-      transition: background .15s ease, transform .06s ease;
-      text-decoration: none;
-      display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
-      min-width: 150px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.70) 0%, rgba(0,0,0,.60) 40%, rgba(0,0,0,.78) 100%),
+        url("assets/bg.png") center/cover no-repeat;
+      z-index: 50;
+      transition: opacity .45s ease, visibility .45s ease;
     }
-    .btn:hover{ background: var(--btnHover); }
-    .btn:active{ transform: translateY(1px); }
-    .btn.primary{
-      background: rgba(255,255,255,.18);
-      border-color: rgba(255,255,255,.18);
+    .intro::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,.10) 0%, rgba(0,0,0,.65) 72%, rgba(0,0,0,.82) 100%);
+      pointer-events:none;
     }
-
-    .fade-out{
-      animation: fadeOut .85s ease forwards;
+    .intro-inner{
+      position:relative;
+      text-align:center;
+      padding: 18px 16px;
+      max-width: 560px;
+      width: 100%;
+      z-index: 2;
     }
-    @keyframes fadeOut{
-      to{ opacity:0; visibility:hidden; }
+    .intro-title{
+      font-size: clamp(44px, 7vw, 74px);
+      letter-spacing: .18em;
+      font-weight: 700;
+      margin: 0;
+      text-shadow: 0 12px 32px rgba(0,0,0,.55);
     }
-
-    /* MAIN */
-    main{
-      min-height: 100%;
-      padding: 34px 0 70px;
-      display:none;
-    }
-    main.ready{ display:block; }
-
-    header{
-      padding: 10px 0 18px;
-    }
-    .kicker{
-      margin: 0 0 6px;
+    .intro-sub{
+      margin: 14px 0 0;
+      font-size: 15px;
       color: var(--muted2);
-      font-weight: 650;
-      letter-spacing: .02em;
+      line-height: 1.6;
+    }
+    .intro-hint{
+      margin-top: 22px;
+      font-size: 13px;
+      color: rgba(255,255,255,.50);
+    }
+
+    /* 본문 숨김/표시 */
+    body.is-locked{overflow:hidden}
+    .content{opacity:0; transform: translateY(10px); transition: opacity .55s ease, transform .55s ease;}
+    body.is-ready .content{opacity:1; transform:none;}
+
+    /* 헤더 */
+    .kicker{
+      color: var(--muted2);
       font-size: 14px;
+      letter-spacing: .02em;
+      margin: 4px 0 10px;
     }
     h1{
-      margin: 0 0 10px;
-      font-size: clamp(26px, 4.2vw, 44px);
-      line-height: 1.18;
+      font-size: clamp(26px, 3.2vw, 40px);
+      margin: 0 0 12px;
+      line-height: 1.22;
       letter-spacing: -0.02em;
     }
     .desc{
       margin: 0;
       color: var(--muted);
-      font-size: 15.5px;
-      max-width: 72ch;
-      white-space: pre-line;
+      line-height: 1.85;
+      font-size: 16px;
+      word-break: keep-all;
     }
+    .spacer{height:18px}
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
-      align-items: start;
-      margin-top: 18px;
-    }
-    @media (max-width: 940px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-
+    /* 카드 */
     .card{
-      border: 1px solid var(--border);
-      background: var(--panel);
+      background: var(--card);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      padding: 18px;
+      overflow:hidden;
     }
-    .card-inner{ padding: 16px; }
-    .card-title{
-      margin: 0 0 10px;
+    .card h2{
+      margin:0 0 12px;
       font-size: 18px;
-      font-weight: 800;
       letter-spacing: -0.01em;
     }
-
-    .info{
-      display:grid;
-      gap: 10px;
-    }
+    .rows{display:flex; flex-direction:column; gap:10px;}
     .row{
-      display:grid;
-      grid-template-columns: 92px 1fr auto;
-      gap: 10px;
-      align-items:center;
-      padding: 12px 12px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.18);
-      border-radius: 14px;
-    }
-    @media (max-width: 520px){
-      .row{ grid-template-columns: 80px 1fr; }
-      .row .actions{ grid-column: 1 / -1; justify-content:flex-start; }
-    }
-
-    .label{
-      color: var(--muted2);
-      font-weight: 750;
-      font-size: 13px;
-      letter-spacing: .01em;
-    }
-    .value{
-      font-weight: 680;
-      font-size: 14.5px;
-    }
-    .actions{
       display:flex;
-      gap:8px;
-      justify-content:flex-end;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 14px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
       flex-wrap: wrap;
     }
-    .chip{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.08);
-      padding: 9px 12px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 13px;
+    .label{
+      color: rgba(255,255,255,.60);
+      font-size: 14px;
+      min-width: 52px;
+    }
+    .value{
+      color: rgba(255,255,255,.92);
+      font-size: 16px;
+      font-weight: 600;
+      flex: 1 1 auto;
+      min-width: 180px;
+      line-height: 1.55;
+      word-break: keep-all;
+    }
+    .actions{display:flex; gap:10px; flex: 0 0 auto; flex-wrap: wrap;}
+
+    .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      cursor: pointer;
+      gap:8px;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.90);
+      text-decoration:none;
+      font-size: 14px;
+      font-weight: 650;
+      cursor:pointer;
+      user-select:none;
+      white-space: nowrap;
     }
-    .chip:hover{ background: rgba(255,255,255,.14); }
-
-    .poster{
-      display:block;
+    .btn.primary{
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn.wide{
       width:100%;
-      height:auto;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
+      padding: 14px 14px;
+      font-size: 15px;
     }
-    .poster-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap: wrap;
+
+    /* 본문 그리드: 데스크톱만 2열 */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (min-width: 980px){
+      .grid{grid-template-columns: 1.25fr .75fr;}
+    }
+
+    /* 이미지 */
+    .img{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      display:block;
+    }
+    .img-note{
+      color: rgba(255,255,255,.58);
+      font-size: 13px;
+      line-height: 1.6;
       margin-top: 10px;
     }
 
-    .section{
-      margin-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding-top: 18px;
-    }
-    .section h2{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-      font-weight: 850;
-    }
-    .note{
-      margin: 0;
-      color: var(--muted2);
-      font-size: 13.5px;
-      white-space: pre-line;
-    }
-
+    /* 리플렛 */
     .leaflets{
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 12px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
-    @media (max-width: 940px){
-      .leaflets{ grid-template-columns: 1fr; }
+    @media (min-width: 720px){
+      .leaflets{grid-template-columns: 1fr 1fr;}
     }
-    .leaflets img{
-      width:100%;
-      height:auto;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
+    .leaflet-link{
       display:block;
+      text-decoration:none;
     }
 
-    .timeline{
+    /* 연혁 */
+    ul.timeline{
       margin: 10px 0 0;
       padding-left: 18px;
-      color: var(--text);
+      color: var(--muted);
+      line-height: 1.8;
     }
-    .timeline li{ margin: 8px 0; color: var(--muted); }
-    .timeline b{ color: var(--text); }
+    ul.timeline li{margin: 6px 0}
 
-    .maps{
+    /* 오시는 길 */
+    .addr{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.9;
+      word-break: keep-all;
+    }
+    .map-btns{
       display:flex;
       gap:10px;
       flex-wrap: wrap;
       margin-top: 12px;
     }
 
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.75);
-      border: 1px solid rgba(255,255,255,.14);
+    /* 모달 */
+    dialog{
+      width:min(1100px, 92vw);
+      border:none;
+      padding:0;
+      border-radius: 18px;
+      background: rgba(10,10,10,.96);
       color: var(--text);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease;
-      z-index: 1000;
-      backdrop-filter: blur(8px);
+      box-shadow: 0 26px 70px rgba(0,0,0,.70);
     }
-    .toast.show{ opacity: 1; }
-
-    /* Reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      .fade-out{ animation: none; opacity:0; visibility:hidden; }
-      .btn, .chip{ transition: none; }
+    dialog::backdrop{background: rgba(0,0,0,.70)}
+    .modal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 14px 0;
+      gap: 10px;
+    }
+    .modal-title{margin:0; font-size: 15px; color: rgba(255,255,255,.72)}
+    .close{
+      border:none;
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.90);
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight: 700;
+    }
+    .modal-body{padding: 14px;}
+    .modal-body img{width:100%; height:auto; border-radius: 12px; border:1px solid rgba(255,255,255,.10)}
+    footer{
+      margin-top: 18px;
+      color: rgba(255,255,255,.44);
+      font-size: 12px;
+      line-height: 1.6;
     }
   </style>
 </head>
 
-<body>
-  <!-- INTRO -->
-  <section class="intro" id="intro" aria-label="인트로 화면">
-    <div class="intro-bg" aria-hidden="true"></div>
-    <div class="intro-card">
+<body class="is-locked">
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- 인트로: 1안(자동 전환) 기본 -->
+  <section class="intro" id="intro" aria-label="인트로">
+    <div class="intro-inner">
       <h2 class="intro-title">興 趣</h2>
-      <p class="intro-sub">더흥컴퍼니 2026년 상반기 두 번째 기획공연 초대장</p>
-      <div class="intro-actions">
-        <button class="btn primary" id="enterBtn" type="button">초대장 보기</button>
-        <a class="btn" href="#apply" id="enterAndApply">사전신청</a>
-      </div>
+      <!-- 2안(탭 전환)을 쓰려면 아래 문구만 살리고, 자동전환 JS에서 AUTO_ENTER를 false로 바꾼다. -->
+      <div class="intro-hint" id="introHint" style="display:none;">화면을 누르면 초대장이 열립니다.</div>
     </div>
   </section>
 
-  <!-- MAIN -->
-  <main id="main">
-    <div class="wrap">
-      <header>
-        <p class="kicker">더흥컴퍼니 2026년 상반기 두 번째 기획공연</p>
-        <h1>전통과 현대를 잇는 소리의 자리, 〈흥:취〉</h1>
+  <main class="wrap content" id="content">
+    <p class="kicker">더흥컴퍼니 2026년 상반기 기획공연 초대장</p>
+    <h1>전통과 현대를 잇는 소리의 자리, 〈흥:취〉</h1>
 
-        <!-- 공연설명 3~4줄(공손, 줄바꿈 정돈) -->
-        <p class="desc">
-더흥컴퍼니는 전통 레퍼토리의 결을 바탕으로 동시대 창작곡을 함께 엮어, ‘지금 이 자리’의 국악을 한 무대에서 제시한다.
-본 공연은 전석 무료로 운영되며, 사전신청을 통해 200석 선예약을 진행한다.
-신청 완료 시 대표자 연락처로 확정 문자를 안내하며, 공연 당일 우선 입장 및 좌석 안내를 지원한다.
-지정좌석제가 아님을 안내한다.
-        </p>
-      </header>
+    <p class="desc">
+      더흥컴퍼니는 전통 레퍼토리를 바탕으로 동시대 창작곡을 함께 엮어, 지금 이 자리의 국악을 한 무대에서 선보인다.<br />
+      본 공연은 전석 무료로 운영되며, 사전신청을 통해 관람석 200석 선예약을 진행한다.<br />
+      사전신청 완료 시 대표자 연락처로 확정 문자를 안내한다.<br />
+      공연 당일에는 우선 입장 및 좌석 안내를 지원하며, 지정좌석제가 아님을 안내한다.
+    </p>
 
-      <section class="grid">
-        <!-- 공연 정보 -->
-        <div class="card">
-          <div class="card-inner">
-            <h2 class="card-title">공연 정보</h2>
+    <div class="grid">
+      <!-- 공연정보 -->
+      <section class="card">
+        <h2>공연 정보</h2>
+        <div class="rows">
+          <div class="row">
+            <div class="label">일시</div>
+            <div class="value">2026.02.21 (토) 17:00</div>
+          </div>
 
-            <div class="info">
-              <div class="row">
-                <div class="label">일시</div>
-                <div class="value">2026.02.21 (토) 17:00</div>
-                <div class="actions"></div>
-              </div>
-
-              <div class="row">
-                <div class="label">장소</div>
-                <div class="value">천안시청소년복합커뮤니티센터 1층 대공연장</div>
-                <div class="actions">
-                  <a class="chip" href="#directions">오시는 길</a>
-                </div>
-              </div>
-
-              <div class="row" id="apply">
-                <div class="label">관람</div>
-                <div class="value">전석 무료 (사전신청 가능)</div>
-                <div class="actions">
-                  <a class="chip" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청 바로가기</a>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="label">문의</div>
-                <div class="value">천안시청소년복합커뮤니티센터 교육사업팀 041-557-0924</div>
-                <div class="actions">
-                  <a class="chip" href="tel:041-557-0924">전화하기</a>
-                  <button class="chip" type="button" id="copyPhoneBtn">번호 복사</button>
-                </div>
-              </div>
+          <div class="row">
+            <div class="label">장소</div>
+            <div class="value">천안시청소년복합커뮤니티센터 1층 대공연장</div>
+            <div class="actions">
+              <a class="btn" href="#way">오시는 길</a>
             </div>
+          </div>
 
-            <div class="section">
-              <h2>사전신청 안내</h2>
-              <p class="note">
-관람석 200석은 사전신청을 통한 선예약으로 운영한다.
-신청 시 대표자 연락처로 확정 문자를 안내한다.
-행사 당일 공연장 우선 입장과 좌석 안내를 지원하며, 지정좌석제가 아님을 안내한다.
-신청기간은 사전예약좌석 200석 마감 시까지 운영한다.
-사전신청 200석 외에도 당일 현장접수로 관람이 가능하다.
-              </p>
+          <div class="row">
+            <div class="label">관람</div>
+            <div class="value">전석 무료 (사전신청 가능)</div>
+            <div class="actions">
+              <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청 바로가기</a>
             </div>
+          </div>
+
+          <div class="row">
+            <div class="label">문의</div>
+            <div class="value">천안시청소년복합커뮤니티센터 교육사업팀 041-557-0924</div>
+            <div class="actions">
+              <a class="btn" href="tel:0415570924">전화하기</a>
+              <button class="btn" type="button" id="copyPhone">번호 복사</button>
+            </div>
+          </div>
+
+          <div class="row" style="gap:12px;">
+            <a class="btn wide primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+            <a class="btn wide" href="tel:0415570924">문의 전화</a>
           </div>
         </div>
 
-        <!-- 포스터 -->
-        <aside class="card">
-          <div class="card-inner">
-            <h2 class="card-title">포스터</h2>
-            <img class="poster" src="assets/poster.png" alt="더흥컴퍼니 기획공연 〈흥:취〉 포스터 이미지" loading="lazy" />
-            <div class="poster-actions">
-              <a class="chip" href="assets/poster.png" target="_blank" rel="noopener">포스터 크게 보기</a>
-              <a class="chip" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-              <a class="chip" href="tel:041-557-0924">문의 전화</a>
-            </div>
-          </div>
-        </aside>
+        <div class="spacer"></div>
+        <section class="card" style="background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.10); box-shadow:none;">
+          <h2 style="margin-bottom:10px;">사전신청 안내</h2>
+          <p class="desc" style="margin:0; font-size:15px;">
+            관람석 200석은 사전신청을 통한 선예약으로 운영한다.<br />
+            신청 시 대표자 연락처로 확정 문자를 안내한다.<br />
+            행사 당일 공연장 우선 입장 및 좌석 안내를 지원하며, 지정좌석제가 아님을 안내한다.<br />
+            사전예약좌석 200석 외에도 당일 현장접수로 관람이 가능하다.
+          </p>
+        </section>
       </section>
 
-      <!-- 리플렛 -->
-      <section class="section">
-        <h2>리플렛</h2>
-        <p class="note">아래 이미지를 눌러 확대하여 확인할 수 있다.</p>
-        <div class="leaflets">
-          <a href="assets/leaflet-1.png" target="_blank" rel="noopener">
-            <img src="assets/leaflet-1.png" alt="리플렛 이미지 1" loading="lazy" />
-          </a>
-          <a href="assets/leaflet-2.png" target="_blank" rel="noopener">
-            <img src="assets/leaflet-2.png" alt="리플렛 이미지 2" loading="lazy" />
-          </a>
+      <!-- 포스터 -->
+      <aside class="card">
+        <h2>포스터</h2>
+        <img class="img" src="assets/poster.png" alt="더흥컴퍼니 기획공연 〈흥:취〉 포스터" />
+        <p class="img-note">포스터를 크게 보려면 이미지를 눌러 확대하여 확인한다.</p>
+        <div class="spacer"></div>
+        <div class="rows">
+          <button class="btn wide" type="button" id="openPoster">포스터 크게 보기</button>
+          <a class="btn wide primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+          <a class="btn wide" href="tel:0415570924">문의 전화</a>
         </div>
-      </section>
-
-      <!-- 더흥컴퍼니 연혁 -->
-      <section class="section">
-        <h2>더흥컴퍼니 연혁</h2>
-        <ul class="timeline">
-          <li>국립국악원 찾아가는 교실음악회 〈국악배달통〉 선정</li>
-          <li>시·군 청년예술단체 협력공연 사업 〈흥청온청〉 선정</li>
-          <li>신진국악실험무대 〈전국팔도프로젝트 Vol.4 음풍농월〉 수행</li>
-          <li>천안청년예술 연계프로젝트 〈더 Fun한 라디오콘서트〉 수행</li>
-          <li>문화예술 창작지원사업 〈야금밴드 K-POP 콘서트〉 수행</li>
-          <li>노인요양시설 전통예술프로그램 〈우리소리 興얼興얼〉 수행</li>
-          <li>한·일 청소년 교류 초청사업 식전공연 수행</li>
-          <li>신진국악실험무대 〈경서가악단 溫 - 온고지신〉 수행</li>
-          <li>충남교육청 찾아가는 예술체험한마당 예술단체 선정</li>
-        </ul>
-      </section>
-
-      <!-- 오시는 길 -->
-      <section class="section" id="directions">
-        <h2>오시는 길</h2>
-        <p class="note">
-천안시청소년복합커뮤니티센터 오시는 길
-충청남도 천안시 서북구 불당19로 82 (불당동 1507)
-
-TEL. 041-557-0924 / 041-553-0926
-FAX. 041-553-0927 / 041-553-0925
-
-버스 이용 시
-천안버스터미널 90번 버스 이용
-
-지하철 이용 시
-1호선 천안역 하차 후 천안역 서부광장 6번 버스 이용
-
-자차 이용 시
-천안IC → 삼성대로 → 번영로 → 음봉로
-        </p>
-
-        <div class="maps">
-          <a class="chip" target="_blank" rel="noopener"
-             href="https://map.naver.com/v5/search/%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
-            네이버지도
-          </a>
-          <a class="chip" target="_blank" rel="noopener"
-             href="https://www.google.com/maps/search/?api=1&query=%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
-            구글지도
-          </a>
-          <a class="chip" target="_blank" rel="noopener"
-             href="https://map.kakao.com/link/search/%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
-            카카오맵
-          </a>
-          <a class="chip" href="tel:041-557-0924">문의 전화</a>
-        </div>
-      </section>
+      </aside>
     </div>
+
+    <div class="spacer"></div>
+
+    <!-- 리플렛 -->
+    <section class="card">
+      <h2>리플렛</h2>
+      <div class="leaflets">
+        <a class="leaflet-link" href="assets/leaflet-1.png" target="_blank" rel="noopener">
+          <img class="img" src="assets/leaflet-1.png" alt="리플렛 이미지 1" />
+        </a>
+        <a class="leaflet-link" href="assets/leaflet-2.png" target="_blank" rel="noopener">
+          <img class="img" src="assets/leaflet-2.png" alt="리플렛 이미지 2" />
+        </a>
+      </div>
+      <p class="img-note">리플렛은 이미지를 누르면 새 창에서 크게 확인할 수 있다.</p>
+    </section>
+
+    <div class="spacer"></div>
+
+    <!-- 연혁 -->
+    <section class="card">
+      <h2>더흥컴퍼니 연혁</h2>
+      <ul class="timeline">
+        <li>국립국악원 찾아가는 교실음악회 〈국악배달통〉 선정</li>
+        <li>시·군 청년예술단체 협력공연 사업 〈흥청온청〉 선정</li>
+        <li>신진국악실험무대 〈전국팔도프로젝트 Vol.4 음풍농월〉 수행</li>
+        <li>천안청년예술 연계프로젝트 〈더 Fun한 라디오콘서트〉 수행</li>
+        <li>문화예술 창작지원사업 〈야금밴드 K-POP 콘서트〉 수행</li>
+        <li>국립국악원 찾아가는 교실음악회 〈국악배달통〉 선정</li>
+        <li>시·군 청년예술단체 협력공연 사업 〈흥청온청〉 선정</li>
+        <li>노인요양시설 전통예술프로그램 〈우리소리 興얼興얼〉 수행</li>
+        <li>한·일 청소년 교류 초청사업 식전공연 수행</li>
+        <li>신진국악실험무대 〈경서가악단 溫 - 온고지신〉 수행</li>
+        <li>충남교육청 찾아가는 예술체험한마당 예술단체 선정</li>
+      </ul>
+    </section>
+
+    <div class="spacer"></div>
+
+    <!-- 오시는 길 -->
+    <section class="card" id="way">
+      <h2>천안시청소년복합커뮤니티센터 오시는 길</h2>
+      <p class="addr">
+        충청남도 천안시 서북구 불당19로 82 (불당동 1507)<br />
+        TEL. 041-557-0924 / 041-553-0926<br />
+        FAX. 041-553-0927 / 041-553-0925
+      </p>
+
+      <div class="spacer"></div>
+      <p class="addr">
+        버스 이용 시<br />
+        천안버스터미널 90번 버스 이용
+      </p>
+
+      <div class="spacer"></div>
+      <p class="addr">
+        지하철 이용 시<br />
+        1호선 천안역 하차 후 천안역 서부광장 6번 버스 이용
+      </p>
+
+      <div class="spacer"></div>
+      <p class="addr">
+        자차 이용 시<br />
+        천안IC → 삼성대로 → 번영로 → 음봉로
+      </p>
+
+      <div class="map-btns">
+        <a class="btn primary" target="_blank" rel="noopener"
+           href="https://map.naver.com/v5/search/%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
+          네이버지도
+        </a>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
+          구글지도
+        </a>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://map.kakao.com/link/search/%EC%B2%9C%EC%95%88%EC%8B%9C%EC%B2%AD%EC%86%8C%EB%85%84%EB%B3%B5%ED%95%A9%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%EC%84%BC%ED%84%B0">
+          카카오맵
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      본 페이지는 공연 안내 및 사전신청 연결을 위한 초대장이다.
+    </footer>
   </main>
 
-  <div class="toast" id="toast" role="status" aria-live="polite">복사하였다.</div>
+  <!-- 포스터 모달 -->
+  <dialog id="posterModal" aria-label="포스터 크게 보기">
+    <div class="modal-head">
+      <p class="modal-title">포스터</p>
+      <button class="close" type="button" id="closePoster">닫기</button>
+    </div>
+    <div class="modal-body">
+      <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 〈흥:취〉 포스터 크게 보기" />
+    </div>
+  </dialog>
 
   <script>
-    (function(){
-      const intro = document.getElementById('intro');
-      const main = document.getElementById('main');
-      const enterBtn = document.getElementById('enterBtn');
-      const enterAndApply = document.getElementById('enterAndApply');
-      const copyBtn = document.getElementById('copyPhoneBtn');
-      const toast = document.getElementById('toast');
+    // 인트로 전환 방식 선택
+    // true: 자동 전환(촤악 넘어감)
+    // false: 탭 전환(화면을 누르면 넘어감)
+    const AUTO_ENTER = true;
 
-      function showMain(){
-        // 전환이 "너무 빨리" 느껴지지 않도록 클릭 후 여유 있게 처리한다.
-        intro.classList.add('fade-out');
-        window.setTimeout(() => {
-          main.classList.add('ready');
-          // 인트로 제거(스크롤 방지)
-          intro.style.display = 'none';
-        }, 850);
+    const intro = document.getElementById('intro');
+    const hint = document.getElementById('introHint');
+
+    function enterInvite(){
+      document.body.classList.remove('is-locked');
+      document.body.classList.add('is-ready');
+      intro.style.opacity = '0';
+      intro.style.visibility = 'hidden';
+      setTimeout(()=>{ intro.remove(); }, 520);
+    }
+
+    if (AUTO_ENTER){
+      setTimeout(enterInvite, 900);
+    } else {
+      hint.style.display = 'block';
+      intro.addEventListener('click', enterInvite, { once:true });
+    }
+
+    // 포스터 모달
+    const posterModal = document.getElementById('posterModal');
+    document.getElementById('openPoster').addEventListener('click', () => posterModal.showModal());
+    document.getElementById('closePoster').addEventListener('click', () => posterModal.close());
+    posterModal.addEventListener('click', (e) => {
+      const rect = posterModal.getBoundingClientRect();
+      const inDialog = rect.top <= e.clientY && e.clientY <= rect.bottom && rect.left <= e.clientX && e.clientX <= rect.right;
+      if (!inDialog) posterModal.close();
+    });
+
+    // 번호 복사
+    document.getElementById('copyPhone').addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText('041-557-0924');
+        alert('문의번호가 복사되었습니다.');
+      }catch(e){
+        prompt('복사가 제한된 환경입니다. 아래 번호를 복사하십시오.', '041-557-0924');
       }
-
-      enterBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMain();
-      });
-
-      // 인트로에서 '사전신청' 누르면 본문으로 넘어간 뒤 해당 위치로 이동한다.
-      enterAndApply.addEventListener('click', (e) => {
-        e.preventDefault();
-        showMain();
-        window.setTimeout(() => {
-          const el = document.getElementById('apply');
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-          // 새 창으로 네이버폼도 바로 연다(원치 않으면 이 줄 삭제).
-          window.open('https://naver.me/5fdL4G8Q', '_blank', 'noopener');
-        }, 920);
-      });
-
-      function showToast(msg){
-        toast.textContent = msg;
-        toast.classList.add('show');
-        window.setTimeout(() => toast.classList.remove('show'), 1200);
-      }
-
-      copyBtn.addEventListener('click', async () => {
-        const phone = '041-557-0924';
-        try{
-          await navigator.clipboard.writeText(phone);
-          showToast('문의번호를 복사하였다.');
-        }catch(err){
-          // 클립보드 권한이 막힌 환경 대비
-          const ta = document.createElement('textarea');
-          ta.value = phone;
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand('copy');
-          document.body.removeChild(ta);
-          showToast('문의번호를 복사하였다.');
-        }
-      });
-
-      // URL에 #main이 있으면 인트로 생략
-      if (location.hash === '#main') {
-        intro.style.display = 'none';
-        main.classList.add('ready');
-      }
-    })();
+    });
   </script>
 </body>
 </html>
