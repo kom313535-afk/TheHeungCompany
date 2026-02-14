@@ -11,18 +11,15 @@
 <meta property="og:url" content="https://kom313535-afk.github.io/TheHeungCompany/" />
 <meta property="og:image" content="https://kom313535-afk.github.io/TheHeungCompany/assets/og.png" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --bg:url("assets/bg.png");
-  --text:rgba(245,242,234,0.96);
+  --text:rgba(245,242,234,0.95);
   --muted:rgba(245,242,234,0.74);
-  --line:rgba(245,242,234,0.16);
-  --card:rgba(0,0,0,0.56);
-  --chip:rgba(0,0,0,0.30);
+  --line:rgba(245,242,234,0.14);
+  --card:rgba(0,0,0,0.60);
 }
 
 *{box-sizing:border-box;}
@@ -35,53 +32,65 @@ body{
   overflow-x:hidden;
 }
 
-/* background */
+/* 배경 */
 .bg{
   position:fixed;
   inset:0;
   background-image:var(--bg);
   background-size:cover;
   background-position:center;
-  filter:contrast(1.05) saturate(0.95);
+  opacity:0.42;               /* ↓ 불투명도 낮춤 */
+  filter:blur(6px) brightness(0.8); /* ↓ 부드럽게 */
+  transition:opacity .6s ease, filter .6s ease;
 }
+
+/* 인트로 동안 배경 더 어둡게 */
+body.intro-active .bg{
+  opacity:0.28;
+  filter:blur(8px) brightness(0.65);
+}
+
 .vignette{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at center, rgba(0,0,0,0.08), rgba(0,0,0,0.62) 70%, rgba(0,0,0,0.86));
+  background:radial-gradient(circle at center,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.7) 75%);
 }
 
-/* intro */
+/* 인트로 */
 .intro{
   position:fixed;
   inset:0;
   display:grid;
   place-items:center;
   z-index:10;
-  pointer-events:none;
-  animation:introOut 650ms ease 1550ms forwards;
+  animation:introOut 700ms ease 1500ms forwards;
 }
+
 .hanja{
   opacity:0;
-  transform:translateY(14px) scale(0.98);
-  filter:blur(3px);
-  animation:hanjaIn 1050ms cubic-bezier(.18,.9,.18,1) 240ms forwards;
+  transform:scale(.96);
+  animation:hanjaIn 1100ms ease forwards;
 }
+
 .hanja span{
   font-family:"Noto Serif TC","Noto Serif KR",serif;
   font-weight:700;
-  font-size:clamp(56px,10vw,110px);
-  letter-spacing:0.10em;
-  color:rgba(245,242,234,0.96);
-  text-shadow:0 2px 0 rgba(0,0,0,0.6), 0 16px 40px rgba(0,0,0,0.62);
+  font-size:clamp(60px,10vw,120px);
+  letter-spacing:0.1em;
+  color:#f5f2ea;
+  text-shadow:0 6px 30px rgba(0,0,0,0.8);
 }
-@keyframes hanjaIn{
-  0%{opacity:0; transform:translateY(14px) scale(0.98); filter:blur(3px);}
-  70%{opacity:1; filter:blur(0.4px);}
-  100%{opacity:1; transform:translateY(0) scale(1); filter:blur(0);}
-}
-@keyframes introOut{to{opacity:0; visibility:hidden;}}
 
-/* layout */
+@keyframes hanjaIn{
+  to{opacity:1; transform:scale(1);}
+}
+@keyframes introOut{
+  to{opacity:0; visibility:hidden;}
+}
+
+/* 레이아웃 */
 .wrap{
   position:relative;
   min-height:100svh;
@@ -89,250 +98,86 @@ body{
   justify-content:center;
   padding:24px 14px 44px;
 }
+
 .shell{
   width:100%;
   max-width:980px;
-  margin-top: clamp(210px, 34svh, 360px);
+  margin-top:clamp(220px,35svh,380px);
   display:grid;
-  gap:14px;
+  gap:16px;
 }
 
-/* poster */
+/* 포스터 */
 .poster{
-  border:1px solid var(--line);
-  border-radius:18px;
-  background:var(--card);
-  backdrop-filter:blur(10px);
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.62);
-  opacity:0;
-  transform:translateY(16px);
-  animation:in 850ms ease 1600ms forwards;
+  background:var(--card);
+  backdrop-filter:blur(12px);
+  box-shadow:0 30px 80px rgba(0,0,0,0.7);
 }
+
 .poster img{
   width:100%;
-  height:auto;
   display:block;
 }
 
-/* card */
+/* 카드 */
 .card{
-  border:1px solid var(--line);
-  border-radius:18px;
+  border-radius:20px;
   background:var(--card);
-  backdrop-filter:blur(10px);
-  box-shadow:0 20px 60px rgba(0,0,0,0.62);
-  opacity:0;
-  transform:translateY(16px);
-  animation:in 850ms ease 1700ms forwards;
+  backdrop-filter:blur(12px);
+  box-shadow:0 30px 80px rgba(0,0,0,0.7);
 }
-@keyframes in{to{opacity:1; transform:translateY(0);}}
-.inner{padding:18px 16px 16px;}
+
+.inner{padding:20px;}
 
 .title{
   margin:0;
   font-size:20px;
   font-weight:700;
-  line-height:1.45;
 }
+
 .desc{
-  margin:10px 0 0;
+  margin-top:12px;
   font-size:14px;
-  color:var(--muted);
   line-height:1.75;
+  color:var(--muted);
   white-space:pre-line;
 }
 
-/* rows */
-.grid{margin-top:14px; display:grid; gap:10px;}
-.row{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px;
-  border:1px solid var(--line);
-  border-radius:14px;
-  background:rgba(0,0,0,0.28);
-}
-.k{color:var(--muted); font-size:13px; min-width:84px;}
-.v{font-size:13px; text-align:right; line-height:1.6; white-space:pre-line;}
-
-/* ticket + rsvp inline */
-.inline{
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.chip{
-  display:inline-flex;
-  align-items:center;
-  padding:8px 10px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:var(--chip);
-  font-size:12.5px;
-  color:var(--text);
-  line-height:1;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid var(--line);
-  background:rgba(0,0,0,0.34);
-  color:var(--text);
-  padding:9px 12px;
-  border-radius:12px;
-  font-size:13px;
-  text-decoration:none;
-  cursor:pointer;
-  min-height:40px; /* 모바일 터치 */
-  -webkit-tap-highlight-color: transparent;
-}
-.btn:hover{background:rgba(0,0,0,0.44);}
-
-/* buttons */
-.btns{
-  margin-top:14px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-@media (max-width:520px){
-  .k{min-width:70px;}
-  .row{padding:11px;}
-  .btns .btn{flex:1 1 calc(50% - 10px);}
-}
-
-/* reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .intro,.hanja,.poster,.card{animation:none; opacity:1; transform:none;}
+/* 모바일 */
+@media(max-width:520px){
+  .inner{padding:16px;}
 }
 </style>
 </head>
 
-<body>
-<div class="bg" aria-hidden="true"></div>
-<div class="vignette" aria-hidden="true"></div>
+<body class="intro-active">
 
-<div class="intro" aria-hidden="true">
-  <div class="hanja"><span>興 趣</span></div>
+<div class="bg"></div>
+<div class="vignette"></div>
+
+<div class="intro">
+  <div class="hanja">
+    <span>興 趣</span>
+  </div>
 </div>
 
 <main class="wrap">
   <div class="shell">
 
-    <section class="poster" aria-label="포스터">
-      <img src="assets/poster.png" alt="전통과 현대를 잇다 〈흥:취〉 포스터" loading="lazy">
-    </section>
-
-    <section class="card" aria-label="공연 정보">
-      <div class="inner">
-        <h1 class="title" id="eventTitle"></h1>
-        <p class="desc" id="eventDesc"></p>
-
-        <div class="grid">
-          <div class="row">
-            <div class="k">일시</div>
-            <div class="v" id="eventDate"></div>
-          </div>
-
-          <div class="row">
-            <div class="k">장소</div>
-            <div class="v" id="eventPlace"></div>
-          </div>
-
-          <div class="row">
-            <div class="k">관람</div>
-            <div class="v">
-              <div class="inline">
-                <span class="chip" id="eventTicket"></span>
-                <a class="btn" id="rsvpInlineBtn" href="#" target="_blank" rel="noopener">사전신청</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="k">문의</div>
-            <div class="v">
-              <a class="btn" id="callBtn" href="#">전화하기</a>
-              <div style="margin-top:8px; color:var(--muted); font-size:12.5px; line-height:1.6;" id="eventContactText"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="btns">
-          <a class="btn" id="rsvpBtn" href="#" target="_blank" rel="noopener">사전신청 링크</a>
-          <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">지도</a>
-          <button class="btn" id="copyBtn" type="button">문의번호 복사</button>
-          <button class="btn" id="shareBtn" type="button">링크 공유</button>
-        </div>
-      </div>
+    <section class="poster">
+      <img src="assets/poster.png" alt="전통과 현대를 잇다 〈흥:취〉 포스터">
     </section>
 
   </div>
 </main>
 
 <script>
-const INVITE = {
-  title: "전통과 현대를 잇는 소리의 자리, 〈흥:취〉",
-  desc:
-`더흥컴퍼니 2026년 상반기 두 번째 기획공연 ‘전통과 현대를 잇다’가 천안시청소년복합커뮤니티센터 1층 대공연장에서 개최된다.
-전통 레퍼토리와 창작곡을 한 무대에 편성하여, 전통의 결을 유지한 채 오늘의 감각으로 풀어낸다.
-관람석 200석은 사전신청 선예약으로 운영되며, 신청 시 대표자 연락처로 확정 문자를 안내한다.
-공연 당일에는 현장접수로도 관람이 가능하다.`,
-  date: "2026.02.21 (토) 17:00",
-  place: "천안시청소년복합커뮤니티센터 1층 대공연장",
-  ticket: "전석 무료 (사전신청 가능)",
-  rsvpUrl: "https://form.naver.com/response/4l1qf5vUUzlSO0Z_tbeU2Q",
-  contactDept: "천안시청소년복합커뮤니티센터 교육사업팀",
-  contactPhone: "041-557-0924",
-  mapQuery: "천안시청소년복합커뮤니티센터"
-};
-
-document.getElementById("eventTitle").textContent = INVITE.title;
-document.getElementById("eventDesc").textContent = INVITE.desc;
-document.getElementById("eventDate").textContent = INVITE.date;
-document.getElementById("eventPlace").textContent = INVITE.place;
-document.getElementById("eventTicket").textContent = INVITE.ticket;
-
-document.getElementById("rsvpInlineBtn").href = INVITE.rsvpUrl;
-document.getElementById("rsvpBtn").href = INVITE.rsvpUrl;
-
-const mapUrl = "https://map.naver.com/v5/search/" + encodeURIComponent(INVITE.mapQuery);
-document.getElementById("mapBtn").href = mapUrl;
-
-const tel = "tel:" + INVITE.contactPhone.replace(/[^0-9]/g,"");
-document.getElementById("callBtn").href = tel;
-
-document.getElementById("eventContactText").textContent =
-`${INVITE.contactDept}\n${INVITE.contactPhone}`;
-
-document.getElementById("copyBtn").addEventListener("click", async () => {
-  try{
-    await navigator.clipboard.writeText(INVITE.contactPhone);
-    alert("문의번호가 복사되었다.");
-  }catch(e){
-    prompt("아래 번호를 복사한다.", INVITE.contactPhone);
-  }
-});
-
-document.getElementById("shareBtn").addEventListener("click", async () => {
-  const url = location.href;
-  try{
-    if(navigator.share){
-      await navigator.share({ title: INVITE.title, text: INVITE.title, url });
-      return;
-    }
-  }catch(e){}
-  try{
-    await navigator.clipboard.writeText(url);
-    alert("링크가 복사되었다.");
-  }catch(e){
-    prompt("아래 링크를 복사한다.", url);
-  }
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.body.classList.remove("intro-active");
+  },1500);
 });
 </script>
 
