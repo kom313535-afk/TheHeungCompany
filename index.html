@@ -666,13 +666,6 @@
         });
       }
 
-      // 한번 본 경우 다음 방문에서 인트로 생략(원치 않으면 이 블록 삭제)
-      try{
-        if(sessionStorage.getItem("heung_intro_hidden") === "1"){
-          if(intro) intro.classList.add("hidden");
-        }
-      }catch(e){}
-    })();
   </script>
 </body>
 </html>
