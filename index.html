@@ -493,9 +493,9 @@
           <a href="assets/poster.png" target="_blank" rel="noopener" aria-label="포스터 크게 보기">
             <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 <흥:취> 포스터" loading="lazy" />
           </a>
-          <div class="note">포스터를 누르면 크게 볼 수 있다.</div>
+          <div class="note">포스터를 누르면 확대가 가능합니다.</div>
           <div class="leaflet-actions">
-            <a class="btn wide" href="assets/poster.png" target="_blank" rel="noopener">포스터 크게 보기</a>
+            <a class="btn wide" href="assets/poster.png" target="_blank" rel="noopener">포스터 확대</a>
             <a class="btn wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
             <a class="btn wide" href="tel:0415570924">문의 전화</a>
           </div>
@@ -510,29 +510,29 @@
 
         <div class="leaflet-grid">
           <div class="leaflet-item">
-            <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 1 크게 보기">
-              <img src="assets/leaflet-1.png" alt="리플렛 이미지 1" loading="lazy" />
+            <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 보기">
+              <img src="assets/leaflet-1.png" alt="리플렛" loading="lazy" />
             </a>
             <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-1.png" target="_blank" rel="noopener">리플렛 1 크게 보기</a>
+              <a class="btn wide" href="assets/leaflet-1.png" target="_blank" rel="noopener">리플렛 확대</a>
             </div>
           </div>
 
           <div class="leaflet-item">
-            <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 2 크게 보기">
-              <img src="assets/leaflet-2.png" alt="리플렛 이미지 2" loading="lazy" />
+            <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 보기">
+              <img src="assets/leaflet-2.png" alt="리플렛" loading="lazy" />
             </a>
             <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-2.png" target="_blank" rel="noopener">리플렛 2 크게 보기</a>
+              <a class="btn wide" href="assets/leaflet-2.png" target="_blank" rel="noopener">리플렛 확대</a>
             </div>
           </div>
 
           <div class="leaflet-item">
-            <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 3 크게 보기">
-              <img src="assets/leaflet-3.png" alt="리플렛 이미지 3" loading="lazy" />
+            <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 보기">
+              <img src="assets/leaflet-3.png" alt="리플렛" loading="lazy" />
             </a>
             <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-3.png" target="_blank" rel="noopener">리플렛 3 크게 보기</a>
+              <a class="btn wide" href="assets/leaflet-3.png" target="_blank" rel="noopener">리플렛 3 확대</a>
             </div>
           </div>
         </div>
@@ -665,14 +665,6 @@
           hideIntro();
         });
       }
-
-      // 한번 본 경우 다음 방문에서 인트로 생략(원치 않으면 이 블록 삭제)
-      try{
-        if(sessionStorage.getItem("heung_intro_hidden") === "1"){
-          if(intro) intro.classList.add("hidden");
-        }
-      }catch(e){}
-    })();
   </script>
 </body>
 </html>
