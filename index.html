@@ -23,13 +23,10 @@
       --txt:#f3f3f3;
       --muted:rgba(255,255,255,.72);
       --muted2:rgba(255,255,255,.58);
-      --card:rgba(18,18,18,.70);
-      --card2:rgba(24,24,24,.62);
       --stroke:rgba(255,255,255,.12);
       --stroke2:rgba(255,255,255,.16);
       --shadow:0 18px 70px rgba(0,0,0,.55);
       --radius:22px;
-      --radius2:16px;
       --max:980px;
     }
 
@@ -40,13 +37,13 @@
       color:var(--txt);
       background:var(--bg);
       font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Segoe UI, Roboto, sans-serif;
-      line-height:1.6;
+      line-height:1.65;
       letter-spacing:-0.2px;
       word-break: keep-all;
       overflow-wrap: break-word;
     }
 
-    /* 전체 배경(눈아프지 않게) */
+    /* 전체 배경 */
     body::before{
       content:"";
       position:fixed;
@@ -66,7 +63,7 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      opacity:.14; /* bg 불투명도 낮춤 */
+      opacity:.14;
       filter: saturate(.92) contrast(.98);
       z-index:-4;
       pointer-events:none;
@@ -77,27 +74,36 @@
       width:100%;
       max-width:var(--max);
       margin:0 auto;
-      padding: 26px 16px 80px;
+      padding: 24px 16px 80px;
     }
+    .narrow{max-width: 860px;}
 
-    /* 상단 정보 */
+    /* 상단 */
     .kicker{
       font-size:14px;
       color:var(--muted2);
-      margin: 18px 0 8px;
+      margin: 18px 0 10px;
     }
     h1{
       font-size: clamp(26px, 4.4vw, 42px);
       line-height:1.2;
-      margin: 0 0 12px;
+      margin: 0 0 14px;
       letter-spacing:-0.6px;
     }
+
+    /* 본문 문단 */
     .lead{
       font-size: clamp(15px, 2.2vw, 18px);
       color: var(--muted);
       margin: 0 0 18px;
     }
-    .lead p{margin:0}
+    .lead p{
+      margin: 0;
+    }
+    .lead p + p{
+      margin-top: 10px;
+    }
+
     .quote{
       margin: 14px 0 22px;
       padding: 14px 16px;
@@ -106,11 +112,11 @@
       background: rgba(0,0,0,.30);
       color: rgba(255,255,255,.78);
       font-size: 14px;
-      line-height:1.55;
+      line-height:1.6;
       max-width: 720px;
     }
 
-    /* 카드 공통 */
+    /* 카드 */
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       border: 1px solid var(--stroke);
@@ -130,10 +136,7 @@
       letter-spacing:-0.3px;
     }
 
-    /* 공연 정보 표 */
-    .info{
-      margin-top: 18px;
-    }
+    /* 정보 rows */
     .rows{
       display:flex;
       flex-direction:column;
@@ -157,11 +160,13 @@
       font-size:16px;
       color: rgba(255,255,255,.92);
     }
+    .mono{font-variant-numeric: tabular-nums}
     .value small{
       display:block;
       margin-top:4px;
       color: rgba(255,255,255,.70);
       font-size: 14px;
+      line-height:1.55;
     }
 
     /* 버튼 */
@@ -189,6 +194,8 @@
       transition: transform .06s ease, background .18s ease, border-color .18s ease;
       user-select:none;
       -webkit-tap-highlight-color: transparent;
+      flex: 1 1 150px;
+      min-width: 140px;
     }
     .btn:hover{background: rgba(255,255,255,.09)}
     .btn:active{transform: scale(.99)}
@@ -196,30 +203,22 @@
       background: rgba(255,255,255,.14);
       border-color: rgba(255,255,255,.22);
     }
-    .btn.wide{
-      flex: 1 1 160px;
-      min-width: 140px;
-    }
 
-    /* 구분 섹션 */
-    .spacer{height: 18px}
     .divider{
       height:1px;
       background: rgba(255,255,255,.10);
       margin: 18px 0;
     }
 
-    /* 포스터 */
-    .poster{
-      margin-top: 18px;
-    }
-    .poster figure{
-      margin:0;
+    /* 이미지 섹션(포스터/리플렛) */
+    figure{margin:0}
+    .img-block{
       padding: 14px;
       background: rgba(0,0,0,.34);
       border-top: 1px solid rgba(255,255,255,.08);
     }
-    .poster img{
+    .img-block a{display:block}
+    .img-block img{
       width:100%;
       height:auto;
       display:block;
@@ -227,17 +226,14 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.02);
     }
-    .poster .note{
+    .note{
       margin: 10px 2px 0;
       color: rgba(255,255,255,.62);
       font-size: 13px;
       line-height:1.55;
     }
 
-    /* 리플렛 */
-    .leaflets{
-      margin-top: 18px;
-    }
+    /* 리플렛: 초대장 내에서 "1/2/3" 텍스트 표시 금지 */
     .leaflet-grid{
       display:grid;
       grid-template-columns: 1fr;
@@ -256,35 +252,19 @@
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.02);
     }
-    .leaflet-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
-
-    /* 연혁 */
-    .history ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.86);
-    }
-    .history li{
-      margin: 6px 0;
-      line-height:1.55;
-    }
 
     /* 오시는 길 */
     .way .addr{
       color: rgba(255,255,255,.88);
       font-size: 15px;
       margin: 0 0 8px;
+      line-height:1.65;
     }
     .way .sub{
       margin: 0;
       color: rgba(255,255,255,.76);
       font-size: 14px;
-      line-height:1.6;
+      line-height:1.65;
     }
     .way .transport{
       margin: 12px 0 0;
@@ -294,15 +274,14 @@
       background: rgba(255,255,255,.03);
     }
     .way .transport p{
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       color: rgba(255,255,255,.86);
       font-size: 14px;
-      line-height:1.65;
+      line-height:1.7;
     }
     .way .transport p:last-child{margin:0}
-    .mono{font-variant-numeric: tabular-nums}
 
-    /* 인트로 오버레이 */
+    /* 인트로: 화면 전체 은은 배경 + 흥취 양옆 라인 + 순차 등장 */
     .intro{
       position:fixed;
       inset:0;
@@ -311,7 +290,7 @@
       align-items:center;
       justify-content:center;
       padding: 18px;
-      background: rgba(0,0,0,.72);
+      background: rgba(0,0,0,.58);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
     }
@@ -322,74 +301,142 @@
       background-image:url("assets/bg.png");
       background-size:cover;
       background-position:center;
-      opacity:.18; /* 인트로도 눈 안 아프게 */
-      filter: saturate(.90) contrast(.98);
+      background-repeat:no-repeat;
+      opacity:.22;
+      filter: saturate(.92) contrast(.98);
+      transform: scale(1.02);
+      z-index:-2;
+    }
+    .intro::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.08), transparent 60%),
+                  linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.62));
       z-index:-1;
     }
-    .intro-card{
-      width:min(560px, 100%);
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      box-shadow: 0 30px 110px rgba(0,0,0,.68);
-      overflow:hidden;
-    }
-    .intro-inner{
-      padding: 26px 18px 18px;
+    .intro-center{
+      width: min(720px, 100%);
       text-align:center;
-      background: rgba(0,0,0,.38);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      padding: 22px 12px 10px;
     }
     .intro-hanja{
-      font-size: clamp(44px, 10vw, 64px);
-      letter-spacing: 8px;
-      margin: 0 0 10px;
-      color: rgba(255,255,255,.90);
-      text-shadow: 0 2px 26px rgba(0,0,0,.65);
+      position: relative;
+      display: inline-block;
+      font-size: clamp(48px, 10vw, 72px);
+      letter-spacing: 10px;
+      margin: 0 0 12px;
+      color: rgba(255,255,255,.92);
+      text-shadow: 0 2px 28px rgba(0,0,0,.70);
+      padding: 6px 18px;
+    }
+    .intro-hanja::before,
+    .intro-hanja::after{
+      content:"";
+      position:absolute;
+      top:50%;
+      width: clamp(70px, 20vw, 200px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.70), transparent);
+      opacity: .95;
+      transform: translateY(-50%) scaleX(0);
+    }
+    .intro-hanja::before{
+      right: calc(100% + 16px);
+      transform-origin: right center;
+    }
+    .intro-hanja::after{
+      left: calc(100% + 16px);
+      transform-origin: left center;
+    }
+    .intro-meta{
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.80);
+      font-size: 15px;
+      line-height: 1.65;
+      opacity:0;
+      transform: translateY(6px);
+    }
+    .intro-date{
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: rgba(255,255,255,.88);
     }
     .intro-sub{
-      margin: 0 0 18px;
-      color: rgba(255,255,255,.68);
+      margin: 0;
+      color: rgba(255,255,255,.70);
       font-size: 14px;
-      line-height:1.55;
     }
     .intro-actions{
       display:flex;
       gap:10px;
       justify-content:center;
       flex-wrap:wrap;
-      padding-bottom: 6px;
+      opacity:0;
+      transform: translateY(10px);
+    }
+    .intro.play .intro-hanja::before{
+      animation: introLineIn .62s ease-out .10s forwards;
+    }
+    .intro.play .intro-hanja::after{
+      animation: introLineIn .62s ease-out .18s forwards;
+    }
+    .intro.play .intro-meta{
+      animation: introFadeUp .45s ease-out .40s forwards;
+    }
+    .intro.play .intro-actions{
+      animation: introFadeUp .45s ease-out .62s forwards;
+    }
+    @keyframes introLineIn{
+      from { transform: translateY(-50%) scaleX(0); }
+      to   { transform: translateY(-50%) scaleX(1); }
+    }
+    @keyframes introFadeUp{
+      to{
+        opacity:1;
+        transform: translateY(0);
+      }
     }
 
-    /* 모바일 가독성 */
     @media (max-width: 520px){
       .wrap{padding-top: 18px}
       .row{grid-template-columns: 64px 1fr}
       .row .value{font-size:15px}
-      .btn.wide{min-width: 132px}
-      .intro-hanja{letter-spacing: 6px}
+      .intro-hanja{letter-spacing: 7px}
     }
 
-    /* 데스크톱에서 너무 넓어 보이는 문제 방지: 내부 카드 폭 제한 */
-    .narrow{
-      max-width: 860px;
+    @media (prefers-reduced-motion: reduce){
+      .intro-hanja::before,
+      .intro-hanja::after{
+        animation:none;
+        transform: translateY(-50%) scaleX(1);
+      }
+      .intro-meta,
+      .intro-actions{
+        animation:none;
+        opacity:1;
+        transform:none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <!-- 인트로: 한자 먼저, 바로보기 또는 사전신청 -->
+  <!-- 인트로 -->
   <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="초대장 인트로">
     <div class="intro-bg" aria-hidden="true"></div>
-    <div class="intro-card">
-      <div class="intro-inner">
-        <h2 class="intro-hanja" aria-label="흥취">興 趣</h2>
+
+    <div class="intro-center">
+      <h2 class="intro-hanja" aria-label="흥취">興 趣</h2>
+
+      <div class="intro-meta">
+        <div class="intro-date">2026년 2월 21일 (토) 17:00</div>
         <p class="intro-sub">더흥컴퍼니 2026년 상반기 기획공연</p>
-        <div class="intro-actions">
-          <button class="btn primary wide" id="btnEnter" type="button">초대장 보기</button>
-          <a class="btn wide" id="btnIntroApply" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-        </div>
+      </div>
+
+      <div class="intro-actions">
+        <button class="btn primary" id="btnEnter" type="button">초대장 보기</button>
+        <a class="btn" id="btnIntroApply" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
       </div>
     </div>
   </div>
@@ -397,19 +444,10 @@
   <main class="wrap">
     <div class="narrow">
       <div class="kicker">더흥컴퍼니 2026년 상반기 기획공연</div>
-      <h1>전통과 현대를 잇는 소리의 자리, &lt;흥:취&gt;</h1>
+      <h1>전통과 현대를 잇는 興:趣</h1>
 
       <div class="lead">
-        <p>
-          더흥컴퍼니 2026년 상반기 기획공연<br>
-          전통과 현대를 잇는 興:趣
-        </p>
-        <div class="spacer"></div>
-        <p>
-          더흥컴퍼니 기획공연 '興 : 趣'는 전통을 바탕으로 ,<br>
-          동시대 창작곡을 함께 엮어,<br>
-          전통과 현재를 잇는 무대를 준비했습니다.
-        </p>
+        <p>더흥컴퍼니 기획공연 '興 : 趣'는 전통을 바탕으로 , 동시대 창작곡을 함께 엮어, 전통과 현재를 잇는 무대를 준비했습니다.</p>
       </div>
 
       <div class="quote">
@@ -418,7 +456,7 @@
       </div>
 
       <!-- 공연 정보 -->
-      <section class="card info" aria-label="공연 정보">
+      <section class="card" aria-label="공연 정보">
         <div class="card-inner">
           <h2 class="section-title">공연 정보</h2>
 
@@ -450,16 +488,13 @@
             </div>
           </div>
 
-          <!-- 상단 액션: 사전신청 / 문의전화 / 지도 3종 -->
           <div class="actions" aria-label="바로가기">
-            <a class="btn primary wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-            <a class="btn wide" href="tel:0415570924">문의 전화</a>
-
-            <a class="btn wide" id="btnNaverMap" href="#" target="_blank" rel="noopener">네이버 지도</a>
-            <a class="btn wide" id="btnGoogleMap" href="#" target="_blank" rel="noopener">구글 지도</a>
-            <a class="btn wide" id="btnKakaoMap" href="#" target="_blank" rel="noopener">카카오맵</a>
-
-            <button class="btn wide" id="btnCopyPhone" type="button">문의번호 복사</button>
+            <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+            <a class="btn" href="tel:0415570924">문의 전화</a>
+            <a class="btn" id="btnNaverMap" href="#" target="_blank" rel="noopener">네이버 지도</a>
+            <a class="btn" id="btnGoogleMap" href="#" target="_blank" rel="noopener">구글 지도</a>
+            <a class="btn" id="btnKakaoMap" href="#" target="_blank" rel="noopener">카카오맵</a>
+            <button class="btn" id="btnCopyPhone" type="button">문의번호 복사</button>
           </div>
         </div>
       </section>
@@ -468,91 +503,63 @@
       <section class="card" style="margin-top:18px" aria-label="사전신청 안내">
         <div class="card-inner">
           <h2 class="section-title">사전신청 안내</h2>
-          <div style="color:rgba(255,255,255,.82); font-size:15px; line-height:1.7">
-            관람석 200석은 사전신청을 통한 선예약으로 운영됩니다.<br>
-            신청 시 신청자(대표자) 연락처로 확정 문자를 안내드립니다.<br>
-            사전신청 200석 외에도,<br>
-            공연 당일 현장접수로 관람이 가능합니다.
+
+          <div style="color:rgba(255,255,255,.82); font-size:15px; line-height:1.75">
+            <div>관람석 200석은 사전신청을 통한 선예약으로 운영됩니다.</div>
+            <div>신청 시 신청자(대표자) 연락처로 확정 문자를 안내드립니다.</div>
+            <div>사전신청 200석 외에도, 공연 당일 현장접수로 관람이 가능합니다.</div>
           </div>
 
           <div class="divider"></div>
 
           <div class="actions">
-            <a class="btn primary wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청 바로가기</a>
-            <a class="btn wide" href="tel:0415570924">문의 전화</a>
+            <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+            <a class="btn" href="tel:0415570924">문의 전화</a>
           </div>
         </div>
       </section>
 
       <!-- 포스터 -->
-      <section class="card poster" aria-label="포스터">
+      <section class="card" style="margin-top:18px" aria-label="포스터">
         <div class="card-inner" style="padding-bottom:0">
           <h2 class="section-title">포스터</h2>
         </div>
-        <figure>
-          <a href="assets/poster.png" target="_blank" rel="noopener" aria-label="포스터 크게 보기">
-            <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 <흥:취> 포스터" loading="lazy" />
+        <figure class="img-block">
+          <a href="assets/poster.png" target="_blank" rel="noopener" aria-label="포스터 원본 보기">
+            <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 흥:취 포스터" loading="lazy" />
           </a>
-          <div class="note">포스터를 누르면 크게 볼 수 있다.</div>
-          <div class="leaflet-actions">
-            <a class="btn wide" href="assets/poster.png" target="_blank" rel="noopener">포스터 크게 보기</a>
-            <a class="btn wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-            <a class="btn wide" href="tel:0415570924">문의 전화</a>
-          </div>
+          <div class="note">포스터를 누르면 원본으로 열립니다.</div>
         </figure>
       </section>
 
-      <!-- 리플렛 -->
-      <section class="card leaflets" aria-label="리플렛">
+      <!-- 리플렛: 초대장 내 텍스트 최소화(번호/버튼 문구 표시 안 함) -->
+      <section class="card" style="margin-top:18px" aria-label="리플렛">
         <div class="card-inner" style="padding-bottom:0">
           <h2 class="section-title">리플렛</h2>
         </div>
 
         <div class="leaflet-grid">
           <div class="leaflet-item">
-            <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 1 크게 보기">
-              <img src="assets/leaflet-1.png" alt="리플렛 이미지 1" loading="lazy" />
+            <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
+              <img src="assets/leaflet-1.png" alt="리플렛" loading="lazy" />
             </a>
-            <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-1.png" target="_blank" rel="noopener">리플렛 1 크게 보기</a>
-            </div>
           </div>
 
           <div class="leaflet-item">
-            <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 2 크게 보기">
-              <img src="assets/leaflet-2.png" alt="리플렛 이미지 2" loading="lazy" />
+            <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
+              <img src="assets/leaflet-2.png" alt="리플렛" loading="lazy" />
             </a>
-            <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-2.png" target="_blank" rel="noopener">리플렛 2 크게 보기</a>
-            </div>
           </div>
 
           <div class="leaflet-item">
-            <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 3 크게 보기">
-              <img src="assets/leaflet-3.png" alt="리플렛 이미지 3" loading="lazy" />
+            <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
+              <img src="assets/leaflet-3.png" alt="리플렛" loading="lazy" />
             </a>
-            <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-3.png" target="_blank" rel="noopener">리플렛 3 크게 보기</a>
-            </div>
           </div>
         </div>
-      </section>
 
-      <!-- 더흥컴퍼니 연혁 -->
-      <section class="card history" style="margin-top:18px" aria-label="더흥컴퍼니 연혁">
-        <div class="card-inner">
-          <h2 class="section-title">더흥컴퍼니 연혁</h2>
-          <ul>
-            <li>국립국악원 찾아가는 교실음악회 &lt;국악배달통&gt; 선정</li>
-            <li>시·군 청년예술단체 협력공연 사업 &lt;흥청온청&gt; 선정</li>
-            <li>신진국악실험무대 &lt;전국팔도프로젝트 Vol.4 음풍농월&gt; 수행</li>
-            <li>천안청년예술 연계프로젝트 &lt;더 Fun한 라디오콘서트&gt; 수행</li>
-            <li>문화예술 창작지원사업 &lt;야금밴드 K-POP 콘서트&gt; 수행</li>
-            <li>노인요양시설 전통예술프로그램 &lt;우리소리 興얼興얼&gt; 수행</li>
-            <li>한·일 청소년 교류 초청사업 식전공연 수행</li>
-            <li>신진국악실험무대 &lt;경서가악단 溫 - 온고지신&gt; 수행</li>
-            <li>충남교육청 찾아가는 예술체험한마당 예술단체 선정</li>
-          </ul>
+        <div class="card-inner" style="padding-top:10px">
+          <div class="note">리플렛 이미지를 누르면 원본으로 열립니다.</div>
         </div>
       </section>
 
@@ -580,9 +587,9 @@
           <div class="divider"></div>
 
           <div class="actions">
-            <a class="btn wide" id="btnNaverMap2" href="#" target="_blank" rel="noopener">네이버 지도</a>
-            <a class="btn wide" id="btnGoogleMap2" href="#" target="_blank" rel="noopener">구글 지도</a>
-            <a class="btn wide" id="btnKakaoMap2" href="#" target="_blank" rel="noopener">카카오맵</a>
+            <a class="btn" id="btnNaverMap2" href="#" target="_blank" rel="noopener">네이버 지도</a>
+            <a class="btn" id="btnGoogleMap2" href="#" target="_blank" rel="noopener">구글 지도</a>
+            <a class="btn" id="btnKakaoMap2" href="#" target="_blank" rel="noopener">카카오맵</a>
           </div>
         </div>
       </section>
@@ -593,20 +600,16 @@
   <script>
     (function(){
       const APPLY_URL = "https://naver.me/5fdL4G8Q";
-      const PHONE = "041-557-0924";
+      const PHONE_DISPLAY = "041-557-0924";
       const PHONE_TEL = "0415570924";
       const PLACE_QUERY = "천안시청소년복합커뮤니티센터";
       const ADDRESS = "충청남도 천안시 서북구 불당19로 82";
 
-      // 지도 링크(안정형: 검색 기반)
       const q = encodeURIComponent(PLACE_QUERY + " " + ADDRESS);
-      const qAddr = encodeURIComponent(ADDRESS);
-
       const NAVER = "https://map.naver.com/v5/search/" + q;
       const GOOGLE = "https://www.google.com/maps/search/?api=1&query=" + q;
       const KAKAO = "https://map.kakao.com/?q=" + q;
 
-      // 버튼 바인딩
       const setHref = (id, url) => {
         const el = document.getElementById(id);
         if(el) el.href = url;
@@ -618,13 +621,11 @@
       setHref("btnGoogleMap2", GOOGLE);
       setHref("btnKakaoMap2", KAKAO);
 
-      // 문의번호 복사
       const copy = async (text) => {
         try{
           await navigator.clipboard.writeText(text);
           alert("문의번호가 복사되었습니다.\n" + text);
         }catch(e){
-          // iOS 일부 환경 대비
           const ta = document.createElement("textarea");
           ta.value = text;
           ta.style.position = "fixed";
@@ -639,12 +640,15 @@
 
       const btnCopyPhone = document.getElementById("btnCopyPhone");
       if(btnCopyPhone){
-        btnCopyPhone.addEventListener("click", () => copy(PHONE));
+        btnCopyPhone.addEventListener("click", () => copy(PHONE_DISPLAY));
       }
 
-      // 인트로: 초대장 보기
       const intro = document.getElementById("intro");
       const btnEnter = document.getElementById("btnEnter");
+
+      if(intro){
+        requestAnimationFrame(() => intro.classList.add("play"));
+      }
 
       const hideIntro = () => {
         if(!intro) return;
@@ -656,16 +660,20 @@
         btnEnter.addEventListener("click", hideIntro);
       }
 
-      // 인트로 배경 누르면 닫기(원하면: 클릭 시 바로보기)
       if(intro){
         intro.addEventListener("click", (e) => {
-          // 버튼 클릭은 제외
           const target = e.target;
-          if(target && (target.closest(".intro-card"))) return;
+          if(target && (target.closest(".intro-center"))) return;
           hideIntro();
         });
-      }
 
+        try{
+          if(sessionStorage.getItem("heung_intro_hidden") === "1"){
+            intro.classList.add("hidden");
+          }
+        }catch(e){}
+      }
+    })();
   </script>
 </body>
 </html>
