@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
@@ -7,6 +8,7 @@
   <title>더흥컴퍼니 2026년 상반기 기획공연 | 전통과 현대를 잇는 興:趣</title>
 
   <!-- OG 썸네일 -->
+
   <meta property="og:title" content="더흥컴퍼니 2026년 상반기 기획공연 | 전통과 현대를 잇는 興:趣" />
   <meta property="og:description" content="2026.02.21(토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청)" />
   <meta property="og:image" content="assets/og.png" />
@@ -41,21 +43,11 @@
       letter-spacing:-0.2px;
       word-break: keep-all;
       overflow-wrap: break-word;
+      position: relative;
     }
 
-    /* 전체 배경 */
+    /* 초대장 배경 - 고급스러운 레이어링 */
     body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      background:
-        radial-gradient(1200px 700px at 30% 15%, rgba(255,255,255,.04), transparent 55%),
-        radial-gradient(900px 500px at 70% 40%, rgba(255,255,255,.03), transparent 60%),
-        linear-gradient(to bottom, rgba(0,0,0,.80), rgba(0,0,0,.90));
-      z-index:-3;
-      pointer-events:none;
-    }
-    body::after{
       content:"";
       position:fixed;
       inset:0;
@@ -64,8 +56,20 @@
       background-position:center;
       background-repeat:no-repeat;
       opacity:.18;
-      filter: saturate(.92) contrast(.98);
-      z-index:-4;
+      filter: saturate(1.05) contrast(1.08) brightness(1.02);
+      z-index:-3;
+      pointer-events:none;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(1400px 800px at 35% 20%, rgba(255,255,255,.09), transparent 60%),
+        radial-gradient(1100px 600px at 65% 50%, rgba(255,255,255,.06), transparent 65%),
+        radial-gradient(900px 500px at 50% 80%, rgba(255,255,255,.05), transparent 55%),
+        linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.92) 50%, rgba(0,0,0,.88));
+      z-index:-2;
       pointer-events:none;
     }
 
@@ -233,7 +237,7 @@
       line-height:1.55;
     }
 
-    /* 리플렛 */
+    /* 리플렛: 초대장 내에서 "1/2/3" 텍스트 표시 금지 */
     .leaflet-grid{
       display:grid;
       grid-template-columns: 1fr;
@@ -281,7 +285,7 @@
     }
     .way .transport p:last-child{margin:0}
 
-    /* 인트로 */
+    /* ========== 인트로: 프리미엄 버전 ========== */
     .intro{
       position:fixed;
       inset:0;
@@ -290,11 +294,13 @@
       align-items:center;
       justify-content:center;
       padding: 18px;
-      background: rgba(0,0,0,.40);
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
     .intro.hidden{display:none}
+    
+    /* 인트로 배경 레이어 */
     .intro-bg{
       position:absolute;
       inset:0;
@@ -302,37 +308,55 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      opacity:.35;
-      filter: saturate(.92) contrast(.98);
-      transform: scale(1.02);
+      opacity:.24;
+      filter: saturate(1.08) contrast(1.05) brightness(1.05);
+      transform: scale(1.04);
       z-index:-2;
     }
     .intro::after{
       content:"";
       position:absolute;
       inset:0;
-      background: radial-gradient(900px 520px at 50% 35%, rgba(0,0,0,.28), transparent 60%),
-                  linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.50));
+      background: 
+        radial-gradient(1000px 600px at 50% 38%, rgba(255,255,255,.10), transparent 65%),
+        radial-gradient(800px 450px at 30% 60%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(to bottom, rgba(0,0,0,.32), rgba(0,0,0,.68) 50%, rgba(0,0,0,.58));
       z-index:-1;
     }
+    
     .intro-center{
       width: min(720px, 100%);
       text-align:center;
       padding: 22px 12px 10px;
     }
-
-    /* 흥취 타이포 + 양쪽에서 들어오는 애니메이션 */
+    
+    /* 한자 컨테이너 */
     .intro-hanja{
       position: relative;
       display: inline-flex;
-      gap: 10px;
+      gap: clamp(12px, 2.5vw, 20px);
       font-size: clamp(48px, 10vw, 72px);
-      letter-spacing: 10px;
       margin: 0 0 12px;
-      color: rgba(255,255,255,.92);
-      text-shadow: 0 2px 28px rgba(0,0,0,.70);
+      color: rgba(255,255,255,.94);
+      text-shadow: 0 3px 32px rgba(0,0,0,.75), 0 1px 8px rgba(0,0,0,.50);
       padding: 6px 18px;
     }
+    
+    /* 興 - 왼쪽에서 오른쪽으로 */
+    .intro-hanja .char-heung{
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-120%);
+    }
+    
+    /* 趣 - 오른쪽에서 왼쪽으로 */
+    .intro-hanja .char-chwi{
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(120%);
+    }
+    
+    /* 양옆 라인 */
     .intro-hanja::before,
     .intro-hanja::after{
       content:"";
@@ -340,7 +364,7 @@
       top:50%;
       width: clamp(70px, 20vw, 200px);
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.70), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);
       opacity: .95;
       transform: translateY(-50%) scaleX(0);
     }
@@ -352,21 +376,10 @@
       left: calc(100% + 16px);
       transform-origin: left center;
     }
-
-    .intro-hanja .char{
-      display:inline-block;
-      opacity:0.3;
-    }
-    .intro-hanja .char-left{
-      transform: translateX(-10px);
-    }
-    .intro-hanja .char-right{
-      transform: translateX(10px);
-    }
-
+    
     .intro-meta{
       margin: 0 0 18px;
-      color: rgba(255,255,255,.80);
+      color: rgba(255,255,255,.82);
       font-size: 15px;
       line-height: 1.65;
       opacity:0;
@@ -375,11 +388,11 @@
     .intro-date{
       margin: 0 0 6px;
       font-size: 16px;
-      color: rgba(255,255,255,.88);
+      color: rgba(255,255,255,.90);
     }
     .intro-sub{
       margin: 0;
-      color: rgba(255,255,255,.70);
+      color: rgba(255,255,255,.72);
       font-size: 14px;
     }
     .intro-actions{
@@ -390,29 +403,39 @@
       opacity:0;
       transform: translateY(10px);
     }
-
-    /* 인트로 재생 시 애니메이션 */
+    
+    /* ========== 애니메이션 ========== */
+    .intro.play .char-heung{
+      animation: slideInFromLeft 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards;
+    }
+    .intro.play .char-chwi{
+      animation: slideInFromRight 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s forwards;
+    }
     .intro.play .intro-hanja::before{
-      animation: introLineIn .62s ease-out .10s forwards;
+      animation: introLineIn .68s ease-out .60s forwards;
     }
     .intro.play .intro-hanja::after{
-      animation: introLineIn .62s ease-out .18s forwards;
+      animation: introLineIn .68s ease-out .70s forwards;
     }
-
-    .intro.play .char-left{
-      animation: hanjaInLeft .45s ease-out .14s forwards;
-    }
-    .intro.play .char-right{
-      animation: hanjaInRight .45s ease-out .20s forwards;
-    }
-
     .intro.play .intro-meta{
-      animation: introFadeUp .45s ease-out .40s forwards;
+      animation: introFadeUp .50s ease-out 1.10s forwards;
     }
     .intro.play .intro-actions{
-      animation: introFadeUp .45s ease-out .62s forwards;
+      animation: introFadeUp .50s ease-out 1.35s forwards;
     }
-
+    
+    @keyframes slideInFromLeft{
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInFromRight{
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
     @keyframes introLineIn{
       from { transform: translateY(-50%) scaleX(0); }
       to   { transform: translateY(-50%) scaleX(1); }
@@ -423,27 +446,20 @@
         transform: translateY(0);
       }
     }
-    @keyframes hanjaInLeft{
-      to{
-        transform: translateX(0);
-        opacity:1;
-      }
-    }
-    @keyframes hanjaInRight{
-      to{
-        transform: translateX(0);
-        opacity:1;
-      }
-    }
 
     @media (max-width: 520px){
       .wrap{padding-top: 18px}
       .row{grid-template-columns: 64px 1fr}
       .row .value{font-size:15px}
-      .intro-hanja{letter-spacing: 7px}
     }
 
     @media (prefers-reduced-motion: reduce){
+      .char-heung,
+      .char-chwi{
+        animation:none !important;
+        opacity:1 !important;
+        transform:none !important;
+      }
       .intro-hanja::before,
       .intro-hanja::after{
         animation:none;
@@ -455,13 +471,9 @@
         opacity:1;
         transform:none;
       }
-      .intro-hanja .char{
-        animation:none;
-        transform:none;
-        opacity:1;
-      }
     }
   </style>
+
 </head>
 
 <body>
@@ -469,22 +481,25 @@
   <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="초대장 인트로">
     <div class="intro-bg" aria-hidden="true"></div>
 
-    <div class="intro-center">
-      <h2 class="intro-hanja" aria-label="흥취">
-        <span class="char char-left">興</span>
-        <span class="char char-right">趣</span>
-      </h2>
+```
+<div class="intro-center">
+  <h2 class="intro-hanja" aria-label="흥취">
+    <span class="char-heung">興</span>
+    <span class="char-chwi">趣</span>
+  </h2>
 
-      <div class="intro-meta">
-        <div class="intro-date">2026년 2월 21일 (토) 17:00</div>
-        <p class="intro-sub">더흥컴퍼니 2026년 상반기 기획공연</p>
-      </div>
+  <div class="intro-meta">
+    <div class="intro-date">2026년 2월 21일 (토) 17:00</div>
+    <p class="intro-sub">더흥컴퍼니 2026년 상반기 기획공연</p>
+  </div>
 
-      <div class="intro-actions">
-        <button class="btn primary" id="btnEnter" type="button">초대장 보기</button>
-        <a class="btn" id="btnIntroApply" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-      </div>
-    </div>
+  <div class="intro-actions">
+    <button class="btn primary" id="btnEnter" type="button">초대장 보기</button>
+    <a class="btn" id="btnIntroApply" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+  </div>
+</div>
+```
+
   </div>
 
   <main class="wrap">
@@ -492,161 +507,165 @@
       <div class="kicker">더흥컴퍼니 2026년 상반기 기획공연</div>
       <h1>전통과 현대를 잇는 興:趣</h1>
 
-      <div class="lead">
-        <p>더흥컴퍼니 기획공연 '興 : 趣'는 전통을 바탕으로 , 동시대 창작곡을 함께 엮어, 전통과 현재를 잇는 무대를 준비했습니다.</p>
+```
+  <div class="lead">
+    <p>더흥컴퍼니 기획공연 '興 : 趣'는 전통을 바탕으로 , 동시대 창작곡을 함께 엮어, 전통과 현재를 잇는 무대를 준비했습니다.</p>
+  </div>
+
+  <div class="quote">
+    『본 사업은 2025년도<br>
+    천안문화재단 문화예술보조금을 지원받은 사업입니다.』
+  </div>
+
+  <!-- 공연 정보 -->
+  <section class="card" aria-label="공연 정보">
+    <div class="card-inner">
+      <h2 class="section-title">공연 정보</h2>
+
+      <div class="rows" role="list">
+        <div class="row" role="listitem">
+          <div class="label">일시</div>
+          <div class="value mono">2026.02.21 (토) 17:00</div>
+        </div>
+
+        <div class="row" role="listitem">
+          <div class="label">장소</div>
+          <div class="value">
+            천안시청소년복합커뮤니티센터 1층 대공연장
+            <small class="mono">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</small>
+          </div>
+        </div>
+
+        <div class="row" role="listitem">
+          <div class="label">관람</div>
+          <div class="value">전석 무료 (사전신청)</div>
+        </div>
+
+        <div class="row" role="listitem">
+          <div class="label">문의</div>
+          <div class="value">
+            천안시청소년복합커뮤니티센터 교육사업팀<br>
+            <span class="mono">041-557-0924</span>
+          </div>
+        </div>
       </div>
 
-      <div class="quote">
-        『본 사업은 2025년도<br>
-        천안문화재단 문화예술보조금을 지원받은 사업입니다.』
+      <div class="actions" aria-label="바로가기">
+        <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+        <a class="btn" href="tel:0415570924">문의 전화</a>
+        <a class="btn" id="btnNaverMap" href="#" target="_blank" rel="noopener">네이버 지도</a>
+        <a class="btn" id="btnGoogleMap" href="#" target="_blank" rel="noopener">구글 지도</a>
+        <a class="btn" id="btnKakaoMap" href="#" target="_blank" rel="noopener">카카오맵</a>
+        <button class="btn" id="btnCopyPhone" type="button">문의번호 복사</button>
       </div>
-
-      <!-- 공연 정보 -->
-      <section class="card" aria-label="공연 정보">
-        <div class="card-inner">
-          <h2 class="section-title">공연 정보</h2>
-
-          <div class="rows" role="list">
-            <div class="row" role="listitem">
-              <div class="label">일시</div>
-              <div class="value mono">2026.02.21 (토) 17:00</div>
-            </div>
-
-            <div class="row" role="listitem">
-              <div class="label">장소</div>
-              <div class="value">
-                천안시청소년복합커뮤니티센터 1층 대공연장
-                <small class="mono">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</small>
-              </div>
-            </div>
-
-            <div class="row" role="listitem">
-              <div class="label">관람</div>
-              <div class="value">전석 무료 (사전신청)</div>
-            </div>
-
-            <div class="row" role="listitem">
-              <div class="label">문의</div>
-              <div class="value">
-                천안시청소년복합커뮤니티센터 교육사업팀<br>
-                <span class="mono">041-557-0924</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="actions" aria-label="바로가기">
-            <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-            <a class="btn" href="tel:0415570924">문의 전화</a>
-            <a class="btn" id="btnNaverMap" href="#" target="_blank" rel="noopener">네이버 지도</a>
-            <a class="btn" id="btnGoogleMap" href="#" target="_blank" rel="noopener">구글 지도</a>
-            <a class="btn" id="btnKakaoMap" href="#" target="_blank" rel="noopener">카카오맵</a>
-            <button class="btn" id="btnCopyPhone" type="button">문의번호 복사</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 사전신청 안내 -->
-      <section class="card" style="margin-top:18px" aria-label="사전신청 안내">
-        <div class="card-inner">
-          <h2 class="section-title">사전신청 안내</h2>
-
-          <div style="color:rgba(255,255,255,.82); font-size:15px; line-height:1.75">
-            <div>관람석 200석은 사전신청을 통한 선예약으로 운영됩니다.</div>
-            <div>신청 시 신청자(대표자) 연락처로 확정 문자를 안내드립니다.</div>
-            <div>사전신청 200석 외에도, 공연 당일 현장접수로 관람이 가능합니다.</div>
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="actions">
-            <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-            <a class="btn" href="tel:0415570924">문의 전화</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- 포스터 -->
-      <section class="card" style="margin-top:18px" aria-label="포스터">
-        <div class="card-inner" style="padding-bottom:0">
-          <h2 class="section-title">포스터</h2>
-        </div>
-        <figure class="img-block">
-          <a href="assets/poster.png" target="_blank" rel="noopener" aria-label="포스터 원본 보기">
-            <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 흥:취 포스터" loading="lazy" />
-          </a>
-          <div class="note">포스터를 누르면 원본으로 열립니다.</div>
-        </figure>
-      </section>
-
-      <!-- 리플렛 -->
-      <section class="card" style="margin-top:18px" aria-label="리플렛">
-        <div class="card-inner" style="padding-bottom:0">
-          <h2 class="section-title">리플렛</h2>
-        </div>
-
-        <div class="leaflet-grid">
-          <div class="leaflet-item">
-            <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
-              <img src="assets/leaflet-1.png" alt="리플렛" loading="lazy" />
-            </a>
-          </div>
-
-          <div class="leaflet-item">
-            <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
-              <img src="assets/leaflet-2.png" alt="리플렛" loading="lazy" />
-            </a>
-          </div>
-
-          <div class="leaflet-item">
-            <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
-              <img src="assets/leaflet-3.png" alt="리플렛" loading="lazy" />
-            </a>
-          </div>
-        </div>
-
-        <div class="card-inner" style="padding-top:10px">
-          <div class="note">리플렛 이미지를 누르면 원본으로 열립니다.</div>
-        </div>
-      </section>
-
-      <!-- 오시는 길 -->
-      <section class="card way" style="margin-top:18px" aria-label="오시는 길">
-        <div class="card-inner">
-          <h2 class="section-title">오시는 길</h2>
-
-          <p class="addr">
-            천안시청소년복합커뮤니티센터 오시는 길<br>
-            <span class="mono">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</span>
-          </p>
-
-          <p class="sub mono">
-            TEL. 041-557-0924 / 041-553-0926<br>
-            FAX. 041-553-0927 / 041-553-0925
-          </p>
-
-          <div class="transport" aria-label="교통 안내">
-            <p>버스 이용 시<br>천안버스터미널 90번 버스 이용</p>
-            <p>지하철 이용 시<br>1호선 천안역 하차 후 천안역 서부광장 6번 버스 이용</p>
-            <p>자차 이용 시<br>천안IC → 삼성대로 → 번영로 → 음봉로</p>
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="actions">
-            <a class="btn" id="btnNaverMap2" href="#" target="_blank" rel="noopener">네이버 지도</a>
-            <a class="btn" id="btnGoogleMap2" href="#" target="_blank" rel="noopener">구글 지도</a>
-            <a class="btn" id="btnKakaoMap2" href="#" target="_blank" rel="noopener">카카오맵</a>
-          </div>
-        </div>
-      </section>
-
     </div>
+  </section>
+
+  <!-- 사전신청 안내 -->
+  <section class="card" style="margin-top:18px" aria-label="사전신청 안내">
+    <div class="card-inner">
+      <h2 class="section-title">사전신청 안내</h2>
+
+      <div style="color:rgba(255,255,255,.82); font-size:15px; line-height:1.75">
+        <div>관람석 200석은 사전신청을 통한 선예약으로 운영됩니다.</div>
+        <div>신청 시 신청자(대표자) 연락처로 확정 문자를 안내드립니다.</div>
+        <div>사전신청 200석 외에도, 공연 당일 현장접수로 관람이 가능합니다.</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="actions">
+        <a class="btn primary" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+        <a class="btn" href="tel:0415570924">문의 전화</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 포스터 -->
+  <section class="card" style="margin-top:18px" aria-label="포스터">
+    <div class="card-inner" style="padding-bottom:0">
+      <h2 class="section-title">포스터</h2>
+    </div>
+    <figure class="img-block">
+      <a href="assets/poster.png" target="_blank" rel="noopener" aria-label="포스터 원본 보기">
+        <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 흥:취 포스터" loading="lazy" />
+      </a>
+      <div class="note">포스터를 누르면 원본으로 열립니다.</div>
+    </figure>
+  </section>
+
+  <!-- 리플렛: 초대장 내 텍스트 최소화(번호/버튼 문구 표시 안 함) -->
+  <section class="card" style="margin-top:18px" aria-label="리플렛">
+    <div class="card-inner" style="padding-bottom:0">
+      <h2 class="section-title">리플렛</h2>
+    </div>
+
+    <div class="leaflet-grid">
+      <div class="leaflet-item">
+        <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
+          <img src="assets/leaflet-1.png" alt="리플렛" loading="lazy" />
+        </a>
+      </div>
+
+      <div class="leaflet-item">
+        <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
+          <img src="assets/leaflet-2.png" alt="리플렛" loading="lazy" />
+        </a>
+      </div>
+
+      <div class="leaflet-item">
+        <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 원본 보기">
+          <img src="assets/leaflet-3.png" alt="리플렛" loading="lazy" />
+        </a>
+      </div>
+    </div>
+
+    <div class="card-inner" style="padding-top:10px">
+      <div class="note">리플렛 이미지를 누르면 원본으로 열립니다.</div>
+    </div>
+  </section>
+
+  <!-- 오시는 길 -->
+  <section class="card way" style="margin-top:18px" aria-label="오시는 길">
+    <div class="card-inner">
+      <h2 class="section-title">오시는 길</h2>
+
+      <p class="addr">
+        천안시청소년복합커뮤니티센터 오시는 길<br>
+        <span class="mono">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</span>
+      </p>
+
+      <p class="sub mono">
+        TEL. 041-557-0924 / 041-553-0926<br>
+        FAX. 041-553-0927 / 041-553-0925
+      </p>
+
+      <div class="transport" aria-label="교통 안내">
+        <p>버스 이용 시<br>천안버스터미널 90번 버스 이용</p>
+        <p>지하철 이용 시<br>1호선 천안역 하차 후 천안역 서부광장 6번 버스 이용</p>
+        <p>자차 이용 시<br>천안IC → 삼성대로 → 번영로 → 음봉로</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="actions">
+        <a class="btn" id="btnNaverMap2" href="#" target="_blank" rel="noopener">네이버 지도</a>
+        <a class="btn" id="btnGoogleMap2" href="#" target="_blank" rel="noopener">구글 지도</a>
+        <a class="btn" id="btnKakaoMap2" href="#" target="_blank" rel="noopener">카카오맵</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+```
+
   </main>
 
   <script>
     (function(){
       const APPLY_URL = "https://naver.me/5fdL4G8Q";
       const PHONE_DISPLAY = "041-557-0924";
+      const PHONE_TEL = "0415570924";
       const PLACE_QUERY = "천안시청소년복합커뮤니티센터";
       const ADDRESS = "충청남도 천안시 서북구 불당19로 82";
 
@@ -720,5 +739,6 @@
       }
     })();
   </script>
+
 </body>
 </html>
