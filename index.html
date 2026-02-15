@@ -237,7 +237,7 @@
       line-height:1.55;
     }
 
-    /* 리플렛: 초대장 내에서 "1/2/3" 텍스트 표시 금지 */
+    /* 리플렛 */
     .leaflet-grid{
       display:grid;
       grid-template-columns: 1fr;
@@ -285,7 +285,7 @@
     }
     .way .transport p:last-child{margin:0}
 
-    /* ========== 인트로: 프리미엄 버전 ========== */
+    /* ========== 인트로: 깔끔한 버전 (점 3개 제거) ========== */
     .intro{
       position:fixed;
       inset:0;
@@ -330,7 +330,7 @@
       padding: 22px 12px 10px;
     }
     
-    /* 한자 컨테이너 */
+    /* 한자 컨테이너 - 양옆 라인만 (점 없음) */
     .intro-hanja{
       position: relative;
       display: inline-flex;
@@ -356,7 +356,7 @@
       transform: translateX(120%);
     }
     
-    /* 양옆 라인 */
+    /* 양옆 라인 (깔끔하게) */
     .intro-hanja::before,
     .intro-hanja::after{
       content:"";
@@ -477,7 +477,7 @@
 </head>
 
 <body>
-  <!-- 인트로 -->
+  <!-- 인트로 (점 3개 완전 제거) -->
   <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="초대장 인트로">
     <div class="intro-bg" aria-hidden="true"></div>
 
@@ -594,7 +594,7 @@
     </figure>
   </section>
 
-  <!-- 리플렛: 초대장 내 텍스트 최소화(번호/버튼 문구 표시 안 함) -->
+  <!-- 리플렛 -->
   <section class="card" style="margin-top:18px" aria-label="리플렛">
     <div class="card-inner" style="padding-bottom:0">
       <h2 class="section-title">리플렛</h2>
