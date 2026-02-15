@@ -375,6 +375,69 @@
     .narrow{
       max-width: 860px;
     }
+.intro-hanja::before,
+.intro-hanja::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width: clamp(56px, 18vw, 140px);
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
+  opacity:.9;
+  transform: translateY(-50%) scaleX(0);
+}
+
+.intro-hanja::before{
+  right: calc(100% + 14px);
+  transform-origin: right center;
+  animation: introLineIn .6s ease-out .1s forwards;
+}
+
+.intro-hanja::after{
+  left: calc(100% + 14px);
+  transform-origin: left center;
+  animation: introLineIn .6s ease-out .2s forwards;
+}
+
+@keyframes introLineIn{
+  from { transform: translateY(-50%) scaleX(0); }
+  to   { transform: translateY(-50%) scaleX(1); }
+}
+/* 인트로 '興 趣' 양옆 라인 연출 */
+.intro-hanja{
+  position: relative;
+  display: inline-block;
+  padding: 6px 18px;
+}
+
+.intro-hanja::before,
+.intro-hanja::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width: clamp(56px, 18vw, 140px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
+  transform: translateY(-50%) scaleX(0);
+  opacity: .9;
+}
+
+.intro-hanja::before{
+  right: calc(100% + 14px);
+  transform-origin: right center;
+  animation: introLineIn .55s ease-out .10s forwards;
+}
+
+.intro-hanja::after{
+  left: calc(100% + 14px);
+  transform-origin: left center;
+  animation: introLineIn .55s ease-out .18s forwards;
+}
+
+@keyframes introLineIn{
+  to{ transform: translateY(-50%) scaleX(1); }
+}
+
   </style>
 </head>
 
@@ -384,7 +447,7 @@
     <div class="intro-bg" aria-hidden="true"></div>
     <div class="intro-card">
       <div class="intro-inner">
-        <h2 class="intro-hanja" aria-label="흥취">興 趣</h2>
+       <h2 class="intro-hanja" aria-label="흥취"><span>興 趣</span></h2>
         <p class="intro-sub">더흥컴퍼니 2026년 상반기 기획공연</p>
         <div class="intro-actions">
           <button class="btn primary wide" id="btnEnter" type="button">초대장 보기</button>
