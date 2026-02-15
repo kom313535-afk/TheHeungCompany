@@ -2,547 +2,520 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no, address=no, email=no" />
-  <title>더흥컴퍼니 2026년 상반기 기획공연 | 전통과 현대를 잇는 興:趣</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>더흥컴퍼니 2026년 상반기 기획공연 | 興:趣</title>
 
-  <!-- OG 썸네일 -->
-  <meta property="og:title" content="더흥컴퍼니 2026년 상반기 기획공연 | 전통과 현대를 잇는 興:趣" />
-  <meta property="og:description" content="2026.02.21(토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청)" />
-  <meta property="og:image" content="assets/og.png" />
+  <!-- Open Graph (카톡/메신저 썸네일) -->
   <meta property="og:type" content="website" />
-
+  <meta property="og:title" content="더흥컴퍼니 2026년 상반기 기획공연 | 興:趣" />
+  <meta property="og:description" content="전통과 현대를 잇는 興:趣 초대장. 2026.02.21(토) 17:00, 천안시청소년복합커뮤니티센터 1층 대공연장." />
+  <meta property="og:image" content="og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="더흥컴퍼니 2026년 상반기 기획공연 | 전통과 현대를 잇는 興:趣" />
-  <meta name="twitter:description" content="2026.02.21(토) 17:00 | 천안시청소년복합커뮤니티센터 1층 대공연장 | 전석 무료(사전신청)" />
-  <meta name="twitter:image" content="assets/og.png" />
 
   <style>
     :root{
-      --bg:#060606;
-      --txt:#f3f3f3;
-      --muted:rgba(255,255,255,.72);
-      --muted2:rgba(255,255,255,.58);
-      --card:rgba(18,18,18,.70);
-      --card2:rgba(24,24,24,.62);
-      --stroke:rgba(255,255,255,.12);
-      --stroke2:rgba(255,255,255,.16);
-      --shadow:0 18px 70px rgba(0,0,0,.55);
-      --radius:22px;
-      --radius2:16px;
-      --max:980px;
+      --bg:#0b0c0d;
+      --panel: rgba(18, 18, 18, 0.62);
+      --panel2: rgba(18, 18, 18, 0.78);
+      --stroke: rgba(255,255,255,0.10);
+      --stroke2: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.90);
+      --muted: rgba(255,255,255,0.70);
+      --muted2: rgba(255,255,255,0.58);
+      --accent: rgba(255,255,255,0.92);
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --radius: 22px;
+      --radius2: 16px;
+      --max: 980px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      color:var(--txt);
-      background:var(--bg);
-      font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", Segoe UI, Roboto, sans-serif;
-      line-height:1.6;
-      letter-spacing:-0.2px;
-      word-break: keep-all;
-      overflow-wrap: break-word;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      letter-spacing: -0.2px;
     }
+    a{ color: inherit; text-decoration: none; }
+    button{ font-family: inherit; }
 
-    /* 전체 배경(눈아프지 않게) */
-    body::before{
+    /* Background layer (bg.png + opacity, 눈아픈 것 완화) */
+    .bg-wrap{
+      min-height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .bg-wrap::before{
       content:"";
-      position:fixed;
-      inset:0;
-      background:
-        radial-gradient(1200px 700px at 30% 15%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(900px 500px at 70% 40%, rgba(255,255,255,.05), transparent 60%),
-        linear-gradient(to bottom, rgba(0,0,0,.88), rgba(0,0,0,.92));
-      z-index:-3;
-      pointer-events:none;
+      position: fixed;
+      inset: 0;
+      background: url("bg.png") center / cover no-repeat;
+      opacity: 0.26; /* 핵심: 배경 불투명도 낮춤 */
+      filter: saturate(0.92) contrast(0.92) brightness(0.82);
+      transform: scale(1.02);
+      z-index: -3;
     }
-    body::after{
+    .bg-wrap::after{
       content:"";
-      position:fixed;
-      inset:0;
-      background-image:url("assets/bg.png");
-      background-size:cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      opacity:.14; /* bg 불투명도 낮춤 */
-      filter: saturate(.92) contrast(.98);
-      z-index:-4;
-      pointer-events:none;
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(1200px 700px at 50% 20%, rgba(0,0,0,0.08), rgba(0,0,0,0.62)),
+                  linear-gradient(to bottom, rgba(0,0,0,0.58), rgba(0,0,0,0.78));
+      z-index: -2;
     }
 
-    a{color:inherit}
-    .wrap{
-      width:100%;
-      max-width:var(--max);
-      margin:0 auto;
-      padding: 26px 16px 80px;
-    }
-
-    /* 상단 정보 */
-    .kicker{
-      font-size:14px;
-      color:var(--muted2);
-      margin: 18px 0 8px;
-    }
-    h1{
-      font-size: clamp(26px, 4.4vw, 42px);
-      line-height:1.2;
-      margin: 0 0 12px;
-      letter-spacing:-0.6px;
-    }
-    .lead{
-      font-size: clamp(15px, 2.2vw, 18px);
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-    .lead p{margin:0}
-    .quote{
-      margin: 14px 0 22px;
-      padding: 14px 16px;
-      border:1px solid var(--stroke);
-      border-radius: 14px;
-      background: rgba(0,0,0,.30);
-      color: rgba(255,255,255,.78);
-      font-size: 14px;
-      line-height:1.55;
-      max-width: 720px;
-    }
-
-    /* 카드 공통 */
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-    .card-inner{
-      padding: 18px 18px 16px;
-      background: rgba(12,12,12,.52);
-    }
-    .section-title{
-      font-size:18px;
-      margin: 0 0 12px;
-      letter-spacing:-0.3px;
-    }
-
-    /* 공연 정보 표 */
-    .info{
-      margin-top: 18px;
-    }
-    .rows{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 72px 1fr;
-      gap:12px;
-      padding: 14px 14px;
-      border:1px solid var(--stroke);
-      background: rgba(255,255,255,.03);
-      border-radius: 16px;
-    }
-    .row .label{
-      color: rgba(255,255,255,.62);
-      font-size:14px;
-      padding-top:2px;
-    }
-    .row .value{
-      font-size:16px;
-      color: rgba(255,255,255,.92);
-    }
-    .value small{
-      display:block;
-      margin-top:4px;
-      color: rgba(255,255,255,.70);
-      font-size: 14px;
-    }
-
-    /* 버튼 */
-    .actions{
-      margin-top: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .btn{
-      appearance:none;
-      border: 1px solid var(--stroke2);
-      background: rgba(255,255,255,.06);
-      color: rgba(255,255,255,.92);
-      padding: 12px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      letter-spacing:-0.2px;
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height: 42px;
-      transition: transform .06s ease, background .18s ease, border-color .18s ease;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn:hover{background: rgba(255,255,255,.09)}
-    .btn:active{transform: scale(.99)}
-    .btn.primary{
-      background: rgba(255,255,255,.14);
-      border-color: rgba(255,255,255,.22);
-    }
-    .btn.wide{
-      flex: 1 1 160px;
-      min-width: 140px;
-    }
-
-    /* 구분 섹션 */
-    .spacer{height: 18px}
-    .divider{
-      height:1px;
-      background: rgba(255,255,255,.10);
-      margin: 18px 0;
-    }
-
-    /* 포스터 */
-    .poster{
-      margin-top: 18px;
-    }
-    .poster figure{
-      margin:0;
-      padding: 14px;
-      background: rgba(0,0,0,.34);
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-    .poster img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-    }
-    .poster .note{
-      margin: 10px 2px 0;
-      color: rgba(255,255,255,.62);
-      font-size: 13px;
-      line-height:1.55;
-    }
-
-    /* 리플렛 */
-    .leaflets{
-      margin-top: 18px;
-    }
-    .leaflet-grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    .leaflet-item{
-      padding: 14px;
-      background: rgba(0,0,0,.34);
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-    .leaflet-item img{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-    }
-    .leaflet-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-    }
-
-    /* 연혁 */
-    .history ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,.86);
-    }
-    .history li{
-      margin: 6px 0;
-      line-height:1.55;
-    }
-
-    /* 오시는 길 */
-    .way .addr{
-      color: rgba(255,255,255,.88);
-      font-size: 15px;
-      margin: 0 0 8px;
-    }
-    .way .sub{
-      margin: 0;
-      color: rgba(255,255,255,.76);
-      font-size: 14px;
-      line-height:1.6;
-    }
-    .way .transport{
-      margin: 12px 0 0;
-      padding: 12px 14px;
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 16px;
-      background: rgba(255,255,255,.03);
-    }
-    .way .transport p{
-      margin: 0 0 8px;
-      color: rgba(255,255,255,.86);
-      font-size: 14px;
-      line-height:1.65;
-    }
-    .way .transport p:last-child{margin:0}
-    .mono{font-variant-numeric: tabular-nums}
-
-    /* 인트로 오버레이 */
+    /* Intro (첫 화면: 興趣 -> 터치/클릭으로 메인 전환) */
     .intro{
-      position:fixed;
-      inset:0;
-      z-index: 50;
+      position: fixed;
+      inset: 0;
       display:flex;
       align-items:center;
       justify-content:center;
       padding: 18px;
-      background: rgba(0,0,0,.72);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      z-index: 50;
+      transition: opacity 360ms ease, transform 360ms ease;
     }
-    .intro.hidden{display:none}
-    .intro-bg{
+    .intro.is-hidden{
+      opacity: 0;
+      transform: scale(1.01);
+      pointer-events: none;
+    }
+    .intro-hit{
       position:absolute;
       inset:0;
-      background-image:url("assets/bg.png");
-      background-size:cover;
-      background-position:center;
-      opacity:.18; /* 인트로도 눈 안 아프게 */
-      filter: saturate(.90) contrast(.98);
-      z-index:-1;
+      cursor: pointer;
     }
     .intro-card{
-      width:min(560px, 100%);
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      box-shadow: 0 30px 110px rgba(0,0,0,.68);
-      overflow:hidden;
-    }
-    .intro-inner{
-      padding: 26px 18px 18px;
-      text-align:center;
-      background: rgba(0,0,0,.38);
+      width: min(880px, 92vw);
+      border-radius: 28px;
+      background: rgba(12,12,12,0.52);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      padding: 34px 22px 30px;
+      text-align:center;
+      position: relative;
     }
-    .intro-hanja{
-      font-size: clamp(44px, 10vw, 64px);
-      letter-spacing: 8px;
-      margin: 0 0 10px;
-      color: rgba(255,255,255,.90);
-      text-shadow: 0 2px 26px rgba(0,0,0,.65);
+    .intro-title{
+      font-size: clamp(40px, 6vw, 74px);
+      font-weight: 800;
+      letter-spacing: 6px;
+      color: rgba(255,255,255,0.86);
+      text-shadow: 0 10px 30px rgba(0,0,0,0.55);
+      margin: 0 0 14px;
     }
     .intro-sub{
       margin: 0 0 18px;
-      color: rgba(255,255,255,.68);
       font-size: 14px;
-      line-height:1.55;
+      color: rgba(255,255,255,0.62);
     }
-    .intro-actions{
-      display:flex;
-      gap:10px;
+    .intro-btn{
+      display:inline-flex;
+      align-items:center;
       justify-content:center;
-      flex-wrap:wrap;
-      padding-bottom: 6px;
+      height: 44px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.88);
+      cursor: pointer;
+      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+      user-select: none;
+    }
+    .intro-btn:active{ transform: scale(0.98); }
+    .intro-btn:hover{ background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.20); }
+
+    /* Main layout */
+    header{ padding: 34px 16px 10px; }
+    .container{
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .kicker{
+      font-size: 14px;
+      color: var(--muted2);
+      margin: 0 0 8px;
+    }
+    h1{
+      font-size: clamp(30px, 4.2vw, 44px);
+      line-height: 1.18;
+      margin: 0 0 14px;
+      letter-spacing: -0.6px;
+      color: var(--accent);
     }
 
-    /* 모바일 가독성 */
+    /* Intro text block with exact line breaks */
+    .lead{
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 16px;
+      white-space: pre-line; /* \n 줄바꿈 그대로 */
+    }
+    .grant{
+      margin: 16px 0 22px;
+      padding: 16px 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: var(--radius2);
+      color: rgba(255,255,255,0.78);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      white-space: pre-line;
+    }
+
+    /* Panels */
+    .panel{
+      background: var(--panel);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+    .panel + .panel{ margin-top: 16px; }
+
+    .panel-head{
+      padding: 18px 18px 10px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .info-list{
+      padding: 0 14px 14px;
+      display: grid;
+      gap: 10px;
+    }
+    .info-row{
+      display:flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+    }
+    .info-key{
+      width: 56px;
+      flex: 0 0 56px;
+      color: rgba(255,255,255,0.56);
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      margin-top: 1px;
+    }
+    .info-val{
+      flex: 1;
+      color: rgba(255,255,255,0.90);
+      font-weight: 650;
+      letter-spacing: -0.2px;
+      white-space: pre-line; /* 장소/주소 줄바꿈 */
+      word-break: keep-all;
+    }
+    .info-val .muted{
+      display:block;
+      margin-top: 6px;
+      color: rgba(255,255,255,0.62);
+      font-weight: 600;
+    }
+
+    /* Button bars */
+    .btnbar{
+      padding: 0 18px 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.90);
+      font-weight: 750;
+      cursor: pointer;
+      transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .btn:hover{ background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.22); }
+    .btn:active{ transform: scale(0.98); }
+
+    /* Desktop vs Mobile button rules */
+    .btn-desktop{ display: inline-flex; }
+    .btn-mobile{ display: none; }
+
     @media (max-width: 520px){
-      .wrap{padding-top: 18px}
-      .row{grid-template-columns: 64px 1fr}
-      .row .value{font-size:15px}
-      .btn.wide{min-width: 132px}
-      .intro-hanja{letter-spacing: 6px}
+      .btnbar{ gap: 10px; }
+      .btn-desktop{ display: none; }
+      .btn-mobile{ display: inline-flex; }
+      .btn.full{ width: 100%; }
+      .btn.half{ width: calc(50% - 5px); }
+      .btn.third{ width: calc(33.333% - 7px); }
     }
 
-    /* 데스크톱에서 너무 넓어 보이는 문제 방지: 내부 카드 폭 제한 */
-    .narrow{
-      max-width: 860px;
+    /* Text sections */
+    .section{
+      padding: 18px 18px 18px;
+    }
+    .section-title{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 850;
+      color: rgba(255,255,255,0.90);
+    }
+    .section-body{
+      margin: 0;
+      color: rgba(255,255,255,0.74);
+      white-space: pre-line; /* 줄바꿈 유지 */
+      word-break: keep-all;
+    }
+
+    /* Poster & Leaflet */
+    .media-wrap{
+      padding: 14px 18px 18px;
+      display: grid;
+      gap: 12px;
+    }
+    .media-img{
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.25);
+      display:block;
+      cursor: zoom-in;
+    }
+    .media-note{
+      margin: 0;
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+    }
+
+    .leaflet-grid{
+      display:grid;
+      gap: 12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 860px){
+      .leaflet-grid{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    /* History section (모바일 잘림 방지) */
+    .history-list{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.78);
+      font-weight: 650;
+      letter-spacing: -0.15px;
+      line-height: 1.55;
+      font-size: 15px;
+    }
+    .history-list li{ margin: 8px 0; }
+    @media (max-width: 520px){
+      .history-list{
+        font-size: 14px;      /* 모바일에서 글씨 약간 축소 */
+        letter-spacing: -0.25px;
+      }
+    }
+
+    /* Directions */
+    .dir-block{
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+    }
+    .dir-title{
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.88);
+    }
+    .dir-text{
+      margin: 0;
+      color: rgba(255,255,255,0.70);
+      white-space: pre-line;
+      font-weight: 600;
+    }
+
+    /* Modal for image zoom */
+    .modal{
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 60;
+    }
+    .modal.show{ display:flex; }
+    .modal-img{
+      max-width: min(1100px, 96vw);
+      max-height: 92vh;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 22px 80px rgba(0,0,0,0.65);
+      background: rgba(0,0,0,0.25);
+    }
+    .modal-close{
+      position:absolute;
+      top: 14px;
+      right: 14px;
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.90);
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    footer{
+      padding: 28px 16px 44px;
+      color: rgba(255,255,255,0.45);
+      text-align:center;
+      font-size: 12px;
     }
   </style>
 </head>
 
 <body>
-  <!-- 인트로: 한자 먼저, 바로보기 또는 사전신청 -->
-  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="초대장 인트로">
-    <div class="intro-bg" aria-hidden="true"></div>
-    <div class="intro-card">
-      <div class="intro-inner">
-        <h2 class="intro-hanja" aria-label="흥취">興 趣</h2>
-        <p class="intro-sub">더흥컴퍼니 2026년 상반기 기획공연</p>
-        <div class="intro-actions">
-          <button class="btn primary wide" id="btnEnter" type="button">초대장 보기</button>
-          <a class="btn wide" id="btnIntroApply" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
+  <div class="bg-wrap">
+
+    <!-- INTRO -->
+    <section class="intro" id="intro">
+      <div class="intro-hit" id="introHit" aria-label="intro"></div>
+      <div class="intro-card" role="button" tabindex="0" aria-label="흥취 초대장 시작">
+        <h2 class="intro-title">興 趣</h2>
+        <p class="intro-sub">화면을 누르면 초대장으로 이동한다</p>
+        <button class="intro-btn" id="introBtn" type="button">바로 보기</button>
+      </div>
+    </section>
+
+    <!-- MAIN -->
+    <header>
+      <div class="container">
+        <p class="kicker">더흥컴퍼니 2026년 상반기 기획공연</p>
+        <h1>전통과 현대를 잇는 興:趣</h1>
+
+        <p class="lead">
+더흥컴퍼니 기획공연 '興 : 趣'는 전통을 바탕으로,
+동시대 창작곡을 함께 엮어,
+전통과 현재를 잇는 무대를 준비했습니다.
+        </p>
+
+        <div class="grant">
+『본 사업은 2025년도
+천안문화재단 문화예술보조금을 지원받은 사업입니다.』
         </div>
       </div>
-    </div>
-  </div>
+    </header>
 
-  <main class="wrap">
-    <div class="narrow">
-      <div class="kicker">더흥컴퍼니 2026년 상반기 기획공연</div>
-      <h1>전통과 현대를 잇는 소리의 자리, &lt;흥:취&gt;</h1>
-
-      <div class="lead">
-        <p>
-          더흥컴퍼니 2026년 상반기 기획공연<br>
-          전통과 현대를 잇는 興:趣
-        </p>
-        <div class="spacer"></div>
-        <p>
-          더흥컴퍼니 기획공연 '興 : 趣'는 전통을 바탕으로 ,<br>
-          동시대 창작곡을 함께 엮어,<br>
-          전통과 현재를 잇는 무대를 준비했습니다.
-        </p>
-      </div>
-
-      <div class="quote">
-        『본 사업은 2025년도<br>
-        천안문화재단 문화예술보조금을 지원받은 사업입니다.』
-      </div>
-
+    <main class="container">
       <!-- 공연 정보 -->
-      <section class="card info" aria-label="공연 정보">
-        <div class="card-inner">
-          <h2 class="section-title">공연 정보</h2>
+      <section class="panel" id="info">
+        <div class="panel-head">공연 정보</div>
 
-          <div class="rows" role="list">
-            <div class="row" role="listitem">
-              <div class="label">일시</div>
-              <div class="value mono">2026.02.21 (토) 17:00</div>
-            </div>
-
-            <div class="row" role="listitem">
-              <div class="label">장소</div>
-              <div class="value">
-                천안시청소년복합커뮤니티센터 1층 대공연장
-                <small class="mono">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</small>
-              </div>
-            </div>
-
-            <div class="row" role="listitem">
-              <div class="label">관람</div>
-              <div class="value">전석 무료 (사전신청)</div>
-            </div>
-
-            <div class="row" role="listitem">
-              <div class="label">문의</div>
-              <div class="value">
-                천안시청소년복합커뮤니티센터 교육사업팀<br>
-                <span class="mono">041-557-0924</span>
-              </div>
-            </div>
+        <div class="info-list">
+          <div class="info-row">
+            <div class="info-key">일시</div>
+            <div class="info-val">2026.02.21 (토) 17:00</div>
           </div>
 
-          <!-- 상단 액션: 사전신청 / 문의전화 / 지도 3종 -->
-          <div class="actions" aria-label="바로가기">
-            <a class="btn primary wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-            <a class="btn wide" href="tel:0415570924">문의 전화</a>
-
-            <a class="btn wide" id="btnNaverMap" href="#" target="_blank" rel="noopener">네이버 지도</a>
-            <a class="btn wide" id="btnGoogleMap" href="#" target="_blank" rel="noopener">구글 지도</a>
-            <a class="btn wide" id="btnKakaoMap" href="#" target="_blank" rel="noopener">카카오맵</a>
-
-            <button class="btn wide" id="btnCopyPhone" type="button">문의번호 복사</button>
+          <div class="info-row">
+            <div class="info-key">장소</div>
+            <div class="info-val">천안시청소년복합커뮤니티센터 1층 대공연장
+<span class="muted">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</span></div>
           </div>
+
+          <div class="info-row">
+            <div class="info-key">관람</div>
+            <div class="info-val">전석 무료 (사전신청)</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-key">문의</div>
+            <div class="info-val">천안시청소년복합커뮤니티센터 교육사업팀
+<span class="muted">TEL. 041-557-0924</span></div>
+          </div>
+        </div>
+
+        <!-- 버튼: PC(사전신청/문의전화/복사 + 지도 3종) -->
+        <div class="btnbar">
+          <!-- PC용 -->
+          <button class="btn btn-desktop" type="button" id="btnApplyPc">사전신청</button>
+          <a class="btn btn-desktop" id="btnCallPc" href="tel:0415570924">문의전화</a>
+          <button class="btn btn-desktop" type="button" id="btnCopyPc">문의번호 복사</button>
+
+          <button class="btn btn-desktop" type="button" id="btnNaverPc">네이버지도</button>
+          <button class="btn btn-desktop" type="button" id="btnGooglePc">구글지도</button>
+          <button class="btn btn-desktop" type="button" id="btnKakaoPc">카카오맵</button>
+
+          <!-- 모바일용 -->
+          <button class="btn btn-mobile full" type="button" id="btnApplyM">사전신청</button>
+          <a class="btn btn-mobile full" id="btnCallM" href="tel:0415570924">문의전화</a>
+          <button class="btn btn-mobile third" type="button" id="btnNaverM">네이버지도</button>
+          <button class="btn btn-mobile third" type="button" id="btnGoogleM">구글지도</button>
+          <button class="btn btn-mobile third" type="button" id="btnKakaoM">카카오맵</button>
         </div>
       </section>
 
       <!-- 사전신청 안내 -->
-      <section class="card" style="margin-top:18px" aria-label="사전신청 안내">
-        <div class="card-inner">
-          <h2 class="section-title">사전신청 안내</h2>
-          <div style="color:rgba(255,255,255,.82); font-size:15px; line-height:1.7">
-            관람석 200석은 사전신청을 통한 선예약으로 운영됩니다.<br>
-            신청 시 신청자(대표자) 연락처로 확정 문자를 안내드립니다.<br>
-            사전신청 200석 외에도,<br>
-            공연 당일 현장접수로 관람이 가능합니다.
-          </div>
-
-          <div class="divider"></div>
-
-          <div class="actions">
-            <a class="btn primary wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청 바로가기</a>
-            <a class="btn wide" href="tel:0415570924">문의 전화</a>
-          </div>
+      <section class="panel" id="applyInfo">
+        <div class="section">
+          <h3 class="section-title">사전신청 안내</h3>
+          <p class="section-body">
+관람석 200석은 사전신청을 통한 선예약으로 운영됩니다.
+신청 시 신청자(대표자) 연락처로 확정 문자를 안내드립니다.
+사전신청 200석 외에도,
+공연 당일 현장접수로 관람이 가능합니다.
+          </p>
         </div>
       </section>
 
       <!-- 포스터 -->
-      <section class="card poster" aria-label="포스터">
-        <div class="card-inner" style="padding-bottom:0">
-          <h2 class="section-title">포스터</h2>
-        </div>
-        <figure>
-          <a href="assets/poster.png" target="_blank" rel="noopener" aria-label="포스터 크게 보기">
-            <img src="assets/poster.png" alt="더흥컴퍼니 기획공연 <흥:취> 포스터" loading="lazy" />
-          </a>
-          <div class="note">포스터를 누르면 확대가 가능합니다.</div>
-          <div class="leaflet-actions">
-            <a class="btn wide" href="assets/poster.png" target="_blank" rel="noopener">포스터 확대</a>
-            <a class="btn wide" href="https://naver.me/5fdL4G8Q" target="_blank" rel="noopener">사전신청</a>
-            <a class="btn wide" href="tel:0415570924">문의 전화</a>
+      <section class="panel" id="poster">
+        <div class="panel-head">포스터</div>
+        <div class="media-wrap">
+          <img class="media-img" src="poster.png" alt="흥:취 포스터" data-zoom="poster.png" />
+          <div class="btnbar" style="padding:0;">
+            <a class="btn" href="poster.png" target="_blank" rel="noopener">포스터 크게 보기</a>
           </div>
-        </figure>
+          <p class="media-note">이미지를 누르면 확대하여 볼 수 있다.</p>
+        </div>
       </section>
 
       <!-- 리플렛 -->
-      <section class="card leaflets" aria-label="리플렛">
-        <div class="card-inner" style="padding-bottom:0">
-          <h2 class="section-title">리플렛</h2>
-        </div>
-
-        <div class="leaflet-grid">
-          <div class="leaflet-item">
-            <a href="assets/leaflet-1.png" target="_blank" rel="noopener" aria-label="리플렛 1 크게 보기">
-              <img src="assets/leaflet-1.png" alt="리플렛 이미지 1" loading="lazy" />
-            </a>
-            <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-1.png" target="_blank" rel="noopener">리플렛 확대</a>
-            </div>
+      <section class="panel" id="leaflet">
+        <div class="panel-head">리플렛</div>
+        <div class="media-wrap">
+          <div class="leaflet-grid">
+            <img class="media-img" src="leaflet-1.png" alt="리플렛 1" data-zoom="leaflet-1.png" />
+            <img class="media-img" src="leaflet-2.png" alt="리플렛 2" data-zoom="leaflet-2.png" />
+            <img class="media-img" src="leaflet-3.png" alt="리플렛 3" data-zoom="leaflet-3.png" />
           </div>
-
-          <div class="leaflet-item">
-            <a href="assets/leaflet-2.png" target="_blank" rel="noopener" aria-label="리플렛 2 크게 보기">
-              <img src="assets/leaflet-2.png" alt="리플렛 이미지 2" loading="lazy" />
-            </a>
-            <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-2.png" target="_blank" rel="noopener">리플렛 확대</a>
-            </div>
-          </div>
-
-          <div class="leaflet-item">
-            <a href="assets/leaflet-3.png" target="_blank" rel="noopener" aria-label="리플렛 3 크게 보기">
-              <img src="assets/leaflet-3.png" alt="리플렛 이미지 3" loading="lazy" />
-            </a>
-            <div class="leaflet-actions">
-              <a class="btn wide" href="assets/leaflet-3.png" target="_blank" rel="noopener">리플렛 확대</a>
-            </div>
-          </div>
+          <p class="media-note">이미지를 누르면 확대하여 볼 수 있다.</p>
         </div>
       </section>
 
       <!-- 더흥컴퍼니 연혁 -->
-      <section class="card history" style="margin-top:18px" aria-label="더흥컴퍼니 연혁">
-        <div class="card-inner">
-          <h2 class="section-title">더흥컴퍼니 연혁</h2>
-          <ul>
+      <section class="panel" id="history">
+        <div class="section">
+          <h3 class="section-title">더흥컴퍼니 연혁</h3>
+          <ul class="history-list">
             <li>국립국악원 찾아가는 교실음악회 &lt;국악배달통&gt; 선정</li>
             <li>시·군 청년예술단체 협력공연 사업 &lt;흥청온청&gt; 선정</li>
             <li>신진국악실험무대 &lt;전국팔도프로젝트 Vol.4 음풍농월&gt; 수행</li>
@@ -557,122 +530,157 @@
       </section>
 
       <!-- 오시는 길 -->
-      <section class="card way" style="margin-top:18px" aria-label="오시는 길">
-        <div class="card-inner">
-          <h2 class="section-title">오시는 길</h2>
+      <section class="panel" id="directions">
+        <div class="section">
+          <h3 class="section-title">오시는 길</h3>
+          <p class="section-body">천안시청소년복합커뮤니티센터 오시는 길
+충청남도 천안시 서북구 불당19로 82 (불당동 1507)
 
-          <p class="addr">
-            천안시청소년복합커뮤니티센터 오시는 길<br>
-            <span class="mono">충청남도 천안시 서북구 불당19로 82 (불당동 1507)</span>
-          </p>
+TEL. 041-557-0924 / 041-553-0926
+FAX. 041-553-0927 / 041-553-0925</p>
 
-          <p class="sub mono">
-            TEL. 041-557-0924 / 041-553-0926<br>
-            FAX. 041-553-0927 / 041-553-0925
-          </p>
-
-          <div class="transport" aria-label="교통 안내">
-            <p>버스 이용 시<br>천안버스터미널 90번 버스 이용</p>
-            <p>지하철 이용 시<br>1호선 천안역 하차 후 천안역 서부광장 6번 버스 이용</p>
-            <p>자차 이용 시<br>천안IC → 삼성대로 → 번영로 → 음봉로</p>
+          <div class="dir-block">
+            <p class="dir-title">버스 이용 시</p>
+            <p class="dir-text">천안버스터미널 90번 버스 이용</p>
           </div>
 
-          <div class="divider"></div>
+          <div class="dir-block">
+            <p class="dir-title">지하철 이용 시</p>
+            <p class="dir-text">1호선 천안역 하차 후 천안역 서부광장 6번 버스 이용</p>
+          </div>
 
-          <div class="actions">
-            <a class="btn wide" id="btnNaverMap2" href="#" target="_blank" rel="noopener">네이버 지도</a>
-            <a class="btn wide" id="btnGoogleMap2" href="#" target="_blank" rel="noopener">구글 지도</a>
-            <a class="btn wide" id="btnKakaoMap2" href="#" target="_blank" rel="noopener">카카오맵</a>
+          <div class="dir-block">
+            <p class="dir-title">자차 이용 시</p>
+            <p class="dir-text">천안IC → 삼성대로 → 번영로 → 음봉로</p>
+          </div>
+
+          <div class="btnbar" style="padding:14px 0 0;">
+            <button class="btn" type="button" id="btnNaverDir">네이버지도</button>
+            <button class="btn" type="button" id="btnGoogleDir">구글지도</button>
+            <button class="btn" type="button" id="btnKakaoDir">카카오맵</button>
           </div>
         </div>
       </section>
 
+    </main>
+
+    <footer>
+      더흥컴퍼니 | 興:趣
+    </footer>
+
+    <!-- Image Zoom Modal -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <button class="modal-close" type="button" id="modalClose">닫기</button>
+      <img class="modal-img" id="modalImg" alt="확대 이미지" />
     </div>
-  </main>
+
+  </div>
 
   <script>
-    (function(){
-      const APPLY_URL = "https://naver.me/5fdL4G8Q";
-      const PHONE = "041-557-0924";
-      const PHONE_TEL = "0415570924";
-      const PLACE_QUERY = "천안시청소년복합커뮤니티센터";
-      const ADDRESS = "충청남도 천안시 서북구 불당19로 82";
+    /* =========================
+       사용자가 바꿔 끼우는 값들
+       ========================= */
 
-      // 지도 링크(안정형: 검색 기반)
-      const q = encodeURIComponent(PLACE_QUERY + " " + ADDRESS);
-      const qAddr = encodeURIComponent(ADDRESS);
+    // 사전신청 링크(사용자가 실제 링크로 교체)
+    const APPLY_URL = "https://example.com"; // TODO: 사전신청 URL로 교체
 
-      const NAVER = "https://map.naver.com/v5/search/" + q;
-      const GOOGLE = "https://www.google.com/maps/search/?api=1&query=" + q;
-      const KAKAO = "https://map.kakao.com/?q=" + q;
+    // 지도 링크(필요 시 사용자 링크로 교체)
+    // (검색 링크로 기본 제공. 정확한 장소 페이지 URL이 있으면 그걸 넣는 편이 낫다.)
+    const NAVER_MAP_URL  = "https://map.naver.com/v5/search/" + encodeURIComponent("천안시청소년복합커뮤니티센터 불당19로 82");
+    const GOOGLE_MAP_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("천안시청소년복합커뮤니티센터 불당19로 82");
+    const KAKAO_MAP_URL  = "https://map.kakao.com/link/search/" + encodeURIComponent("천안시청소년복합커뮤니티센터 불당19로 82");
 
-      // 버튼 바인딩
-      const setHref = (id, url) => {
-        const el = document.getElementById(id);
-        if(el) el.href = url;
-      };
-      setHref("btnNaverMap", NAVER);
-      setHref("btnGoogleMap", GOOGLE);
-      setHref("btnKakaoMap", KAKAO);
-      setHref("btnNaverMap2", NAVER);
-      setHref("btnGoogleMap2", GOOGLE);
-      setHref("btnKakaoMap2", KAKAO);
+    // 문의 전화
+    const PHONE_DISPLAY = "041-557-0924";
+    const PHONE_PLAIN   = "0415570924";
 
-      // 문의번호 복사
-      const copy = async (text) => {
-        try{
-          await navigator.clipboard.writeText(text);
-          alert("문의번호가 복사되었습니다.\n" + text);
-        }catch(e){
-          // iOS 일부 환경 대비
-          const ta = document.createElement("textarea");
-          ta.value = text;
-          ta.style.position = "fixed";
-          ta.style.left = "-9999px";
-          document.body.appendChild(ta);
-          ta.select();
-          document.execCommand("copy");
-          document.body.removeChild(ta);
-          alert("문의번호가 복사되었습니다.\n" + text);
-        }
-      };
+    /* =========================
+       Intro 전환 (클릭/터치/버튼)
+       ========================= */
+    const intro = document.getElementById("intro");
+    const introHit = document.getElementById("introHit");
+    const introBtn = document.getElementById("introBtn");
 
-      const btnCopyPhone = document.getElementById("btnCopyPhone");
-      if(btnCopyPhone){
-        btnCopyPhone.addEventListener("click", () => copy(PHONE));
-      }
+    function hideIntro(){
+      intro.classList.add("is-hidden");
+      // 접근성: 스크롤 위치 상단 유지
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+    introHit.addEventListener("click", hideIntro);
+    introBtn.addEventListener("click", (e) => { e.stopPropagation(); hideIntro(); });
+    intro.addEventListener("keydown", (e) => {
+      if(e.key === "Enter" || e.key === " "){ hideIntro(); }
+    });
 
-      // 인트로: 초대장 보기
-      const intro = document.getElementById("intro");
-      const btnEnter = document.getElementById("btnEnter");
+    /* =========================
+       버튼 연결
+       ========================= */
+    function openUrl(url){ window.open(url, "_blank", "noopener"); }
 
-      const hideIntro = () => {
-        if(!intro) return;
-        intro.classList.add("hidden");
-        try{ sessionStorage.setItem("heung_intro_hidden", "1"); }catch(e){}
-      };
+    // 사전신청
+    document.getElementById("btnApplyPc").addEventListener("click", () => openUrl(APPLY_URL));
+    document.getElementById("btnApplyM").addEventListener("click",  () => openUrl(APPLY_URL));
 
-      if(btnEnter){
-        btnEnter.addEventListener("click", hideIntro);
-      }
-
-      // 인트로 배경 누르면 닫기(원하면: 클릭 시 바로보기)
-      if(intro){
-        intro.addEventListener("click", (e) => {
-          // 버튼 클릭은 제외
-          const target = e.target;
-          if(target && (target.closest(".intro-card"))) return;
-          hideIntro();
-        });
-      }
-
-      // 한번 본 경우 다음 방문에서 인트로 생략(원치 않으면 이 블록 삭제)
+    // 문의번호 복사(PC 전용)
+    document.getElementById("btnCopyPc").addEventListener("click", async () => {
       try{
-        if(sessionStorage.getItem("heung_intro_hidden") === "1"){
-          if(intro) intro.classList.add("hidden");
-        }
-      }catch(e){}
-    })();
+        await navigator.clipboard.writeText(PHONE_DISPLAY);
+        alert("문의번호가 복사되었습니다: " + PHONE_DISPLAY);
+      }catch(e){
+        // iOS 일부 환경 대비 fallback
+        const ta = document.createElement("textarea");
+        ta.value = PHONE_DISPLAY;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        alert("문의번호가 복사되었습니다: " + PHONE_DISPLAY);
+      }
+    });
+
+    // 지도 버튼(상단/하단 동일)
+    const mapBtns = [
+      ["btnNaverPc","btnNaverM","btnNaverDir", NAVER_MAP_URL],
+      ["btnGooglePc","btnGoogleM","btnGoogleDir", GOOGLE_MAP_URL],
+      ["btnKakaoPc","btnKakaoM","btnKakaoDir", KAKAO_MAP_URL],
+    ];
+    mapBtns.forEach(([a,b,c,url]) => {
+      const elA = document.getElementById(a);
+      const elB = document.getElementById(b);
+      const elC = document.getElementById(c);
+      if(elA) elA.addEventListener("click", () => openUrl(url));
+      if(elB) elB.addEventListener("click", () => openUrl(url));
+      if(elC) elC.addEventListener("click", () => openUrl(url));
+    });
+
+    /* =========================
+       이미지 확대 보기(포스터/리플렛)
+       ========================= */
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalClose = document.getElementById("modalClose");
+
+    function openModal(src){
+      modalImg.src = src;
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden","false");
+    }
+    function closeModal(){
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden","true");
+      modalImg.src = "";
+    }
+
+    document.querySelectorAll("[data-zoom]").forEach(img => {
+      img.addEventListener("click", () => openModal(img.getAttribute("data-zoom")));
+    });
+    modal.addEventListener("click", (e) => {
+      if(e.target === modal) closeModal();
+    });
+    modalClose.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeModal();
+    });
   </script>
 </body>
 </html>
