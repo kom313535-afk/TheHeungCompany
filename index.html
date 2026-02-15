@@ -49,9 +49,9 @@
       position:fixed;
       inset:0;
       background:
-        radial-gradient(1200px 700px at 30% 15%, rgba(255,255,255,.06), transparent 55%),
-        radial-gradient(900px 500px at 70% 40%, rgba(255,255,255,.05), transparent 60%),
-        linear-gradient(to bottom, rgba(0,0,0,.88), rgba(0,0,0,.92));
+        radial-gradient(1200px 700px at 30% 15%, rgba(255,255,255,.04), transparent 55%),
+        radial-gradient(900px 500px at 70% 40%, rgba(255,255,255,.03), transparent 60%),
+        linear-gradient(to bottom, rgba(0,0,0,.80), rgba(0,0,0,.90));
       z-index:-3;
       pointer-events:none;
     }
@@ -63,7 +63,7 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      opacity:.14;
+      opacity:.18;
       filter: saturate(.92) contrast(.98);
       z-index:-4;
       pointer-events:none;
@@ -233,7 +233,7 @@
       line-height:1.55;
     }
 
-    /* 리플렛: 초대장 내에서 "1/2/3" 텍스트 표시 금지 */
+    /* 리플렛 */
     .leaflet-grid{
       display:grid;
       grid-template-columns: 1fr;
@@ -281,7 +281,7 @@
     }
     .way .transport p:last-child{margin:0}
 
-    /* 인트로: 화면 전체 은은 배경 + 흥취 양옆 라인 + 순차 등장 */
+    /* 인트로 */
     .intro{
       position:fixed;
       inset:0;
@@ -290,9 +290,9 @@
       align-items:center;
       justify-content:center;
       padding: 18px;
-      background: rgba(0,0,0,.58);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(0,0,0,.40);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
     }
     .intro.hidden{display:none}
     .intro-bg{
@@ -302,7 +302,7 @@
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
-      opacity:.22;
+      opacity:.35;
       filter: saturate(.92) contrast(.98);
       transform: scale(1.02);
       z-index:-2;
@@ -311,8 +311,8 @@
       content:"";
       position:absolute;
       inset:0;
-      background: radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.08), transparent 60%),
-                  linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.62));
+      background: radial-gradient(900px 520px at 50% 35%, rgba(0,0,0,.28), transparent 60%),
+                  linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.50));
       z-index:-1;
     }
     .intro-center{
@@ -320,9 +320,12 @@
       text-align:center;
       padding: 22px 12px 10px;
     }
+
+    /* 흥취 타이포 + 양쪽에서 들어오는 애니메이션 */
     .intro-hanja{
       position: relative;
-      display: inline-block;
+      display: inline-flex;
+      gap: 10px;
       font-size: clamp(48px, 10vw, 72px);
       letter-spacing: 10px;
       margin: 0 0 12px;
@@ -349,6 +352,18 @@
       left: calc(100% + 16px);
       transform-origin: left center;
     }
+
+    .intro-hanja .char{
+      display:inline-block;
+      opacity:0.3;
+    }
+    .intro-hanja .char-left{
+      transform: translateX(-10px);
+    }
+    .intro-hanja .char-right{
+      transform: translateX(10px);
+    }
+
     .intro-meta{
       margin: 0 0 18px;
       color: rgba(255,255,255,.80);
@@ -375,18 +390,29 @@
       opacity:0;
       transform: translateY(10px);
     }
+
+    /* 인트로 재생 시 애니메이션 */
     .intro.play .intro-hanja::before{
       animation: introLineIn .62s ease-out .10s forwards;
     }
     .intro.play .intro-hanja::after{
       animation: introLineIn .62s ease-out .18s forwards;
     }
+
+    .intro.play .char-left{
+      animation: hanjaInLeft .45s ease-out .14s forwards;
+    }
+    .intro.play .char-right{
+      animation: hanjaInRight .45s ease-out .20s forwards;
+    }
+
     .intro.play .intro-meta{
       animation: introFadeUp .45s ease-out .40s forwards;
     }
     .intro.play .intro-actions{
       animation: introFadeUp .45s ease-out .62s forwards;
     }
+
     @keyframes introLineIn{
       from { transform: translateY(-50%) scaleX(0); }
       to   { transform: translateY(-50%) scaleX(1); }
@@ -395,6 +421,18 @@
       to{
         opacity:1;
         transform: translateY(0);
+      }
+    }
+    @keyframes hanjaInLeft{
+      to{
+        transform: translateX(0);
+        opacity:1;
+      }
+    }
+    @keyframes hanjaInRight{
+      to{
+        transform: translateX(0);
+        opacity:1;
       }
     }
 
@@ -417,6 +455,11 @@
         opacity:1;
         transform:none;
       }
+      .intro-hanja .char{
+        animation:none;
+        transform:none;
+        opacity:1;
+      }
     }
   </style>
 </head>
@@ -427,7 +470,10 @@
     <div class="intro-bg" aria-hidden="true"></div>
 
     <div class="intro-center">
-      <h2 class="intro-hanja" aria-label="흥취">興 趣</h2>
+      <h2 class="intro-hanja" aria-label="흥취">
+        <span class="char char-left">興</span>
+        <span class="char char-right">趣</span>
+      </h2>
 
       <div class="intro-meta">
         <div class="intro-date">2026년 2월 21일 (토) 17:00</div>
@@ -532,7 +578,7 @@
         </figure>
       </section>
 
-      <!-- 리플렛: 초대장 내 텍스트 최소화(번호/버튼 문구 표시 안 함) -->
+      <!-- 리플렛 -->
       <section class="card" style="margin-top:18px" aria-label="리플렛">
         <div class="card-inner" style="padding-bottom:0">
           <h2 class="section-title">리플렛</h2>
@@ -601,7 +647,6 @@
     (function(){
       const APPLY_URL = "https://naver.me/5fdL4G8Q";
       const PHONE_DISPLAY = "041-557-0924";
-      const PHONE_TEL = "0415570924";
       const PLACE_QUERY = "천안시청소년복합커뮤니티센터";
       const ADDRESS = "충청남도 천안시 서북구 불당19로 82";
 
